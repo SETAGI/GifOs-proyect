@@ -1,0 +1,127 @@
+.header {
+	&__welcomeVisitors {
+		display: flex;
+		align-items: center;
+		height: 2.3rem;
+		background-image: $color-bg-gradienSailorDay;
+		box-shadow: 0 1px 0 0 $color-boxshadow-blueDark;
+		p {
+			margin: 0 1rem;
+			color: white;
+		}
+	}
+	&__logo {
+		position: absolute;
+		top: 6.2rem;
+		left: 14rem;
+	}
+}
+
+.nav {
+	display: flex;
+	justify-content: flex-end;
+	margin: 4.4rem 14rem;
+
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 14.4rem;
+		text-align: center;
+		height: 3.6rem;
+		text-decoration: none;
+
+		background: $color-bg-btnSailorDay;
+		border: 1px solid $color-boxshadow-blueDark;
+		box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+	}
+
+	&__btn--normal {
+		margin-right: 2rem;
+	}
+
+	&__btn--dropdown {
+		display: flex;
+		justify-content: space-between;
+		width: 16.7rem;
+		.text {
+			width: 13.1rem;
+		}
+		.arrow {
+			width: 3.6rem;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			// border: 1px solid black;
+
+			background: #f7c9f3;
+			border: 1px solid $color-boxshadow-blueDark;
+			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+		}
+	}
+
+	&__list {
+		display: none;
+		position: absolute;
+		width: 14.4rem;
+		background-color: #f9f9f9;
+		a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+	}
+}
+
+.show {
+	display: block;
+}
+
+.searcher {
+	// border: 2px solid blue;
+
+	margin: 0 14rem;
+	height: 9.9rem;
+	background: #e6e6e6;
+	box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+
+	&__name {
+		height: 2.4rem;
+		margin: 0.2rem;
+		color: white;
+		display: flex;
+		display: flex;
+		align-items: center;
+		padding-left: 1rem;
+		background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+	}
+
+	&__flexBox {
+		display: flex;
+
+		justify-content: space-between;
+		align-items: center;
+		a {
+			width: 10%;
+		}
+	}
+	&__input {
+		width: 90%;
+		margin: 1.2rem 1.2rem;
+		height: 4.8rem;
+		background: #ffffff;
+		border: 1px solid #979797;
+		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+	}
+	&__button {
+		// border: 2px solid blue;
+		margin-right: 1.2rem;
+		width: 10.2rem;
+		height: 3.6rem;
+		background: #e6e6e6;
+		border: 1px solid #808080;
+		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+	}
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GifOS | The best place to enjoy</title>
+		<link rel="stylesheet" href="./style/main.css" />
+		<!-- API KEY: BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM-->
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__welcomeVisitors">
+				<p>
+					¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+					visitas: 12.765.803
+				</p>
+			</div>
+
+			<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
+
+			<nav class="nav">
+				<a href="#" class="nav__btn nav__btn--normal">Crear Gifos</a>
+				<div class="nav__ dropdown">
+					<a href="#" class="nav__btn nav__btn--dropdown dropbtn" onclick="myFunction()">
+						<div class="text">Elegir tema</div>
+						<div class="arrow">
+							<img src="./assets/dropdown.svg" alt="Drop down image arrow" />
+						</div>
+					</a>
+
+					<div class="nav__list" id="myDropdown">
+						<a href="#">Sailor Day</a>
+						<a href="#">Sailor Night</a>
+					</div>
+				</div>
+			</nav>
+
+			<div class="searcher">
+				<div class="searcher__name">Buscar</div>
+				<div class="searcher__flexBox">
+					<input
+						class="searcher__input"
+						type="search"
+						placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
+					/>
+					<a href="#" class="searcher__button">
+						<img src="./assets/lupa.svg" alt="" /> Buscar</a
+					>
+				</div>
+			</div>
+		</header>
+
+		<section class="suggestions">
+			<div class="subtitle">
+				<h3>Hoy te sugerimos:</h3>
+			</div>
+			<div class="suggestions__gifs">
+				<div class="content">
+					<!-- <img src="./assets/loading.gift.gif" alt="loader" class="image" /> -->
+				</div>
+				<div class="content">
+					<!-- <img src="./assets/loading.gift.gif" alt="loader" class="image" /> -->
+				</div>
+				<div class="content">
+					<!-- <img src="./assets/loading.gift.gif" alt="loader" class="image" /> -->
+				</div>
+				<div class="content">
+					<!-- <img src="./assets/loading.gift.gif" alt="loader" class="image" /> -->
+				</div>
+			</div>
+		</section>
+
+		<section class="trends">
+			<div class="subtitle">
+				<h3>Tendencias:</h3>
+			</div>
+
+			<div class="trends__gifs">
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content double_element1"></div>
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content"></div>
+				<div class="content double_element2"></div>
+			</div>
+		</section>
+
+		<script src="./GifOS.js"></script>
+	</body>
+</html>

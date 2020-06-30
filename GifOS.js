@@ -5,17 +5,19 @@ function myFunction() {
 
 /*-------------------------- API REQUEST ---------------------------------*/
 
-const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM';
-
-// const URL = 'https://api.giphy.com/v1/gifs/search?q=gay?q=&limit=50';
-const URL = 'http://api.giphy.com/v1/gifs/search?q=simpsons';
-// const URL = 'http://api.giphy.com/v1/gifs/trending?';
-const gifs = document.querySelectorAll('.content');
+const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
+	// URL = 'http://api.giphy.com/v1/gifs/search?q=pokemon',
+	URL = 'http://api.giphy.com/v1/gifs/search?',
+	URL2 = 'http://api.giphy.com/v1/gifs/trending?',
+	gifs = document.querySelectorAll('.content');
 
 let randomArray = [];
 
 const showGifs = async (randomArray, fetchResponse) => {
 	fetchResponse.data.forEach(async (value, indice) => {
+		if (document.querySelector('.gif')) {
+			document.querySelector('.gif').remove();
+		}
 		let element = document.createElement('img');
 
 		element.src = await fetchResponse.data[randomArray[indice]].images.original.url;
@@ -35,10 +37,15 @@ const randomNumbers = (gifArray) => {
 };
 
 /* API request */
-const getGifData = async () => {
-	const answer = await fetch(URL + '&api_key=' + APIKey + '&limit=100');
+const getGifData = async (keyword, URL) => {
+	const answer = await fetch(URL + keyword + '&api_key=' + APIKey + '&limit=50');
 	let data = await answer.json();
 	return data;
 };
 
-getGifData().then((response) => randomNumbers(response));
+getGifData('', URL2).then((response) => randomNumbers(response));
+
+document.getElementById('btn').addEventListener('click', function () {
+	let keyword = document.getElementById('search').value;
+	getGifData('q=' + keyword, URL).then((response) => randomNumbers(response));
+});

@@ -6,27 +6,16 @@ function myFunction() {
 /*-------------------------- API REQUEST ---------------------------------*/
 
 const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
-	// URL = 'http://api.giphy.com/v1/gifs/search?q=pokemon',
 	URL = 'http://api.giphy.com/v1/gifs/search?',
 	URL2 = 'http://api.giphy.com/v1/gifs/trending?',
 	gifs = document.querySelectorAll('.content');
 
-let randomArray = [];
+let randomArray = new Array();
 
-const showGifs = async (randomArray, fetchResponse) => {
-	fetchResponse.data.forEach(async (value, indice) => {
-		if (document.querySelector('.gif')) {
-			document.querySelector('.gif').remove();
-		}
-		let element = document.createElement('img');
-
-		element.src = await fetchResponse.data[randomArray[indice]].images.original.url;
-		element.className = 'gif';
-
-		if (gifs.length > indice) {
-			gifs[indice].appendChild(element);
-		}
-	});
+const showGifs = async (random, gifdata) => {
+	for (let i of gifs.keys()) {
+		gifs[i].querySelector('.gif').src = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
+	}
 };
 
 /* Random array generation */
@@ -40,12 +29,21 @@ const randomNumbers = (gifArray) => {
 const getGifData = async (keyword, URL) => {
 	const answer = await fetch(URL + keyword + '&api_key=' + APIKey + '&limit=50');
 	let data = await answer.json();
+	console.log(data);
 	return data;
 };
 
 getGifData('', URL2).then((response) => randomNumbers(response));
 
+/* Event Listener - Search Button */
 document.getElementById('btn').addEventListener('click', function () {
-	let keyword = document.getElementById('search').value;
+	document.getElementById('btn').style.color = '#b4b4b4';
+	document.querySelector('#btn img').src = '/assets/lupa_inactive.svg';
+	let keyword = document.getElementById('searcher').value;
 	getGifData('q=' + keyword, URL).then((response) => randomNumbers(response));
+});
+
+document.getElementById('searcher').addEventListener('click', function () {
+	document.getElementById('btn').style.color = '#000';
+	document.querySelector('#btn img').src = '/assets/lupa.svg';
 });

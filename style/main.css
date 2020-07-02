@@ -312,6 +312,19 @@ html {
 }
 
 .searcher__button {
+  font-family: ChakraPetch-Regular;
+  font-size: 16px;
+  color: #b4b4b4;
+  letter-spacing: 0;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-right: 1.2rem;
   width: 10.2rem;
   height: 3.6rem;
@@ -319,6 +332,7 @@ html {
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  text-decoration: none;
 }
 
 .suggestions {

@@ -4,7 +4,6 @@
 	&__gifs {
 		display: grid;
 		margin-top: 2rem;
-		// width: 100%;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat (3, 250px);
 		grid-gap: 1rem;

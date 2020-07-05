@@ -109,6 +109,8 @@ section {
 body {
   line-height: 1;
   font-size: 1.6rem;
+  font-family: ChakraPetch-Regular;
+  color: #110038;
 }
 
 ol,
@@ -143,13 +145,13 @@ html {
 /*----------background Sailor day----------*/
 /* Box shadow */
 @font-face {
-  font-family: IBMPlexMono;
-  src: url(../Fonts/IMB_Plex_Mono/IBMPlexMono-Regular.ttf);
+  font-family: ChakraPetch-Regular;
+  src: url(../Fonts/ChakraPetch-Regular.ttf);
 }
 
 @font-face {
-  font-family: IBMPlexMono-Medium;
-  src: url(../Fonts/IMB_Plex_Mono/IBMPlexMono-Medium.ttf);
+  font-family: ChakraPetch-Bold;
+  src: url(../Fonts/ChakraPetch-Bold.ttf);
 }
 
 .header__welcomeVisitors {
@@ -168,13 +170,14 @@ html {
 
 .header__welcomeVisitors p {
   margin: 0 1rem;
-  color: white;
+  font-size: 1.2rem;
+  color: #ffffff;
 }
 
 .header__logo {
   position: absolute;
   top: 6.2rem;
-  left: 14rem;
+  left: 10rem;
 }
 
 .nav {
@@ -184,7 +187,7 @@ html {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin: 4.4rem 14rem;
+  margin: 4.4rem 10rem;
 }
 
 .nav__btn {
@@ -208,6 +211,17 @@ html {
 }
 
 .nav__btn--normal {
+  color: #110038;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.nav__btn--normal:not(:last-child) {
   margin-right: 2rem;
 }
 
@@ -223,6 +237,7 @@ html {
 
 .nav__btn--dropdown .text {
   width: 13.1rem;
+  color: #110038;
 }
 
 .nav__btn--dropdown .arrow {
@@ -262,7 +277,7 @@ html {
 }
 
 .searcher {
-  margin: 0 14rem;
+  margin: 0 10rem;
   height: 9.9rem;
   background: #e6e6e6;
   -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -273,9 +288,9 @@ html {
   height: 2.4rem;
   margin: 0.2rem;
   color: white;
+  font-family: ChakraPetch-Bold;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -297,26 +312,20 @@ html {
           align-items: center;
 }
 
-.searcher__flexBox a {
-  width: 10%;
-}
-
 .searcher__input {
   width: 90%;
+  outline: none;
+  font-size: 1.6rem;
+  font-family: ChakraPetch-Regular;
   margin: 1.2rem 1.2rem;
   height: 4.8rem;
-  background: #ffffff;
   border: 1px solid #979797;
   -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
 }
 
 .searcher__button {
-  font-family: ChakraPetch-Regular;
-  font-size: 16px;
   color: #b4b4b4;
-  letter-spacing: 0;
-  line-height: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -325,10 +334,10 @@ html {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  padding-right: 1rem;
   margin-right: 1.2rem;
   width: 10.2rem;
   height: 3.6rem;
-  background: #e6e6e6;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
@@ -336,11 +345,11 @@ html {
 }
 
 .suggestions {
-  margin: 3rem 14rem;
+  margin: 3rem 10rem;
 }
 
 .suggestions__gifs {
-  margin-top: 2rem;
+  margin-top: 1.9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -376,16 +385,17 @@ html {
 
 .subtitle h3 {
   margin: 1rem 1rem;
+  font-size: 1.4rem;
 }
 
 .trends {
-  margin: 3rem 14rem;
+  margin: 3rem 10rem;
 }
 
 .trends__gifs {
   display: -ms-grid;
   display: grid;
-  margin-top: 2rem;
+  margin-top: 1.9rem;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: repeat 3, 250px;
@@ -408,5 +418,124 @@ html {
 .trends__gifs .gif {
   width: 100%;
   height: 250px;
+}
+
+.alert {
+  margin: 17.7rem 37.8rem;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+}
+
+.alert__nameWindow {
+  height: 2.4rem;
+  margin: 0.2rem;
+  color: white;
+  font-family: ChakraPetch-Bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1rem;
+  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+
+.dialogueWindow {
+  margin: 3.2rem 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dialogueWindow__image {
+  margin-right: 1.6rem;
+}
+
+.bold-paragraph {
+  font-family: ChakraPetch-Bold;
+  margin-bottom: 1.7rem;
+}
+
+span {
+  font-family: ChakraPetch-Bold;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-bottom: 3.6rem;
+  padding-right: 3.6rem;
+}
+
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 14.4rem;
+  text-align: center;
+  height: 3.6rem;
+  text-decoration: none;
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.button:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+/* hiding and showing information */
+.gifCreation {
+  display: none;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  margin: 18.4rem 27.3rem;
+  width: 86rem;
+  height: 54.8rem;
+}
+
+.gifCreation__video {
+  margin: 0 auto;
+  margin-top: 0.8rem;
+  width: 83.2rem;
+  height: 43.4rem;
+  padding: 0.2rem;
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+.showCamera {
+  display: block;
+}
+
+.hiddenAlert {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

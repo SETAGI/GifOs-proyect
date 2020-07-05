@@ -15,6 +15,7 @@ let randomArray = new Array();
 const showGifs = async (random, gifdata) => {
 	for (let i of gifs.keys()) {
 		gifs[i].querySelector('.gif').src = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
+		gifs[i].href = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
 	}
 };
 
@@ -36,14 +37,17 @@ const getGifData = async (keyword, URL) => {
 getGifData('', URL2).then((response) => randomNumbers(response));
 
 /* Event Listener - Search Button */
-document.getElementById('btn').addEventListener('click', function () {
+document.getElementById('btn').addEventListener('click', function (e) {
+	e.preventDefault();
 	document.getElementById('btn').style.color = '#b4b4b4';
 	document.querySelector('#btn img').src = '/assets/lupa_inactive.svg';
 	let keyword = document.getElementById('searcher').value;
+	document.getElementById('searcher').value = '';
 	getGifData('q=' + keyword, URL).then((response) => randomNumbers(response));
 });
 
-document.getElementById('searcher').addEventListener('click', function () {
+document.getElementById('searcher').addEventListener('click', function (e) {
+	e.preventDefault();
 	document.getElementById('btn').style.color = '#000';
 	document.querySelector('#btn img').src = '/assets/lupa.svg';
 });

@@ -7,20 +7,21 @@
 		box-shadow: 0 1px 0 0 $color-boxshadow-blueDark;
 		p {
 			margin: 0 1rem;
-			color: white;
+			font-size: 1.2rem;
+			color: #ffffff;
 		}
 	}
 	&__logo {
 		position: absolute;
 		top: 6.2rem;
-		left: 14rem;
+		left: 10rem;
 	}
 }
 
 .nav {
 	display: flex;
 	justify-content: flex-end;
-	margin: 4.4rem 14rem;
+	margin: 4.4rem 10rem;
 
 	&__btn {
 		display: flex;
@@ -37,7 +38,14 @@
 	}
 
 	&__btn--normal {
-		margin-right: 2rem;
+		color: #110038;
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+
+		&:not(:last-child) {
+			margin-right: 2rem;
+		}
 	}
 
 	&__btn--dropdown {
@@ -46,6 +54,7 @@
 		width: 16.7rem;
 		.text {
 			width: 13.1rem;
+			color: #110038;
 		}
 		.arrow {
 			width: 3.6rem;
@@ -53,7 +62,6 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			// border: 1px solid black;
 
 			background: #f7c9f3;
 			border: 1px solid $color-boxshadow-blueDark;
@@ -80,9 +88,7 @@
 }
 
 .searcher {
-	// border: 2px solid blue;
-
-	margin: 0 14rem;
+	margin: 0 10rem;
 	height: 9.9rem;
 	background: #e6e6e6;
 	box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -91,7 +97,8 @@
 		height: 2.4rem;
 		margin: 0.2rem;
 		color: white;
-		display: flex;
+		font-family: ChakraPetch-Bold;
+
 		display: flex;
 		align-items: center;
 		padding-left: 1rem;
@@ -100,58 +107,30 @@
 
 	&__flexBox {
 		display: flex;
-
 		justify-content: space-between;
 		align-items: center;
-		a {
-			width: 10%;
-		}
 	}
 	&__input {
 		width: 90%;
+		outline: none;
+		font-size: 1.6rem;
+		font-family: ChakraPetch-Regular;
 		margin: 1.2rem 1.2rem;
 		height: 4.8rem;
-		background: #ffffff;
 		border: 1px solid #979797;
 		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
 	}
 	&__button {
-		font-family: ChakraPetch-Regular;
-		font-size: 16px;
 		color: #b4b4b4;
-		letter-spacing: 0;
-		line-height: 18px;
-
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		padding-right: 1rem;
 		margin-right: 1.2rem;
 		width: 10.2rem;
 		height: 3.6rem;
-		background: #e6e6e6;
 		border: 1px solid #808080;
 		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 		text-decoration: none;
 	}
 }
-
-// form {
-// 	.searcher__button {
-// 		font-family: ChakraPetch-Regular;
-// 		font-size: 16px;
-// 		color: #b4b4b4;
-// 		letter-spacing: 0;
-// 		line-height: 18px;
-
-// 		display: flex;
-// 		align-items: center;
-// 		justify-content: space-around;
-// 		margin-right: 1.2rem;
-// 		width: 10.2rem;
-// 		height: 3.6rem;
-// 		background: #e6e6e6;
-// 		border: 1px solid #808080;
-// 		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
-// 		text-decoration: none;
-// 	}
-// }

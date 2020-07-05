@@ -1,9 +1,9 @@
 .trends {
-	margin: 3rem 14rem;
+	margin: 3rem 10rem;
 
 	&__gifs {
 		display: grid;
-		margin-top: 2rem;
+		margin-top: 1.9rem;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat (3, 250px);
 		grid-gap: 1rem;

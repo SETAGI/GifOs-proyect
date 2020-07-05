@@ -1,8 +1,8 @@
 .suggestions {
-	margin: 3rem 14rem;
+	margin: 3rem 10rem;
 
 	&__gifs {
-		margin-top: 2rem;
+		margin-top: 1.9rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -29,5 +29,6 @@
 	box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
 	h3 {
 		margin: 1rem 1rem;
+		font-size: 1.4rem;
 	}
 }

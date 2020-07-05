@@ -1,3 +1,6 @@
+const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
+	URL_UPLOAD = 'http://upload.giphy.com/v1/gifs';
+
 function createFunction() {
 	document.querySelector('.gifCreation').classList.toggle('showCamera');
 	document.querySelector('.alert').classList.toggle('hiddenAlert');
@@ -51,7 +54,6 @@ document.getElementById('start').onclick = function () {
 
 document.getElementById('stop').onclick = function () {
 	document.getElementById('video').srcObject = null;
-
 	this.disabled = true;
 
 	recorder.stopRecording(function (blob) {
@@ -63,9 +65,12 @@ document.getElementById('stop').onclick = function () {
 		form.append('file', recorder.getBlob(), 'myGif.gif');
 		console.log(form.get('file'));
 
-		// fetch('ejemplo/data.txt', { method: 'POST' }).then((response) => {
-		// 	console.log(response.status);
-		// 	// → 405
-		// });
+		fetch(`${URL_UPLOAD}?api_key=${APIKey}&username=SETAGI`, { method: 'post', body: form })
+			.then((response) => {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
 	});
 };

@@ -1,0 +1,32 @@
+.button {
+	color: #110038;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 14rem;
+	text-align: center;
+	height: 3.2rem;
+	text-decoration: none;
+	background: $color-bg-btnSailorDay;
+	border: 1px solid $color-boxshadow-blueDark;
+	box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+
+	&:not(:last-child) {
+		margin-right: 1.6rem;
+	}
+
+	&--large {
+		width: 16.5rem;
+	}
+}
+
+.bold-letter {
+	font-family: ChakraPetch-Bold;
+}
+
+p {
+	font-size: 1.4rem;
+	&:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+}

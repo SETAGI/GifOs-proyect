@@ -5,6 +5,7 @@
 		height: 2.3rem;
 		background-image: $color-bg-gradienSailorDay;
 		box-shadow: 0 1px 0 0 $color-boxshadow-blueDark;
+
 		p {
 			margin: 0 1rem;
 			font-size: 1.2rem;
@@ -23,20 +24,6 @@
 	justify-content: flex-end;
 	margin: 4.4rem 10rem;
 
-	&__btn {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 14.4rem;
-		text-align: center;
-		height: 3.6rem;
-		text-decoration: none;
-
-		background: $color-bg-btnSailorDay;
-		border: 1px solid $color-boxshadow-blueDark;
-		box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-	}
-
 	&__btn--normal {
 		color: #110038;
 		display: flex;
@@ -52,19 +39,27 @@
 		display: flex;
 		justify-content: space-between;
 		width: 16.7rem;
+
 		.text {
 			width: 13.1rem;
 			color: #110038;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			// border: 1px solid #110038;
+			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 		}
+
 		.arrow {
 			width: 3.6rem;
 			height: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
 			background: #f7c9f3;
-			border: 1px solid $color-boxshadow-blueDark;
+			border-left: 0.2px solid $color-boxshadow-blueDark;
 			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 		}
 	}
@@ -72,22 +67,37 @@
 	&__list {
 		display: none;
 		position: absolute;
-		width: 14.4rem;
-		background-color: #f9f9f9;
-		a {
-			color: black;
-			padding: 12px 16px;
+		width: 16.7rem;
+		height: 10.2rem;
+		background: #e6e6e6;
+		box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+
+		.button-inside {
+			color: #110038;
+			margin: 0.6rem 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 15rem;
+			text-align: center;
+			height: 3rem;
 			text-decoration: none;
-			display: block;
+			background: #fff4fd;
+			border: 1px solid $color-boxshadow-blueDark;
+			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 		}
 	}
 }
 
 .show {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .searcher {
+	padding: 0.2rem;
 	margin: 0 10rem;
 	height: 9.9rem;
 	background: #e6e6e6;
@@ -95,10 +105,9 @@
 
 	&__name {
 		height: 2.4rem;
-		margin: 0.2rem;
+
 		color: white;
 		font-family: ChakraPetch-Bold;
-
 		display: flex;
 		align-items: center;
 		padding-left: 1rem;
@@ -110,6 +119,7 @@
 		justify-content: space-between;
 		align-items: center;
 	}
+
 	&__input {
 		width: 90%;
 		outline: none;
@@ -118,8 +128,9 @@
 		margin: 1.2rem 1.2rem;
 		height: 4.8rem;
 		border: 1px solid #979797;
-		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 1px 1px 0 0 #000000;
 	}
+
 	&__button {
 		color: #b4b4b4;
 		display: flex;
@@ -133,4 +144,12 @@
 		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 		text-decoration: none;
 	}
+}
+
+.change_color_body {
+	background-color: #110038;
+}
+.change_color_gradient {
+	background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+	box-shadow: 0 1px 0 0 #110038;
 }

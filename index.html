@@ -8,120 +8,117 @@
 		<!-- API KEY: BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM-->
 	</head>
 	<body>
-		<header class="header">
-			<div class="header__welcomeVisitors">
-				<p>
-					¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
-				</p>
-			</div>
+		<div id="contenedor" class="container">
+			<header class="header">
+				<div id="welcomeBar" class="header__welcomeVisitors">
+					<p>
+						¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+					</p>
+				</div>
 
-			<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
+				<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
 
-			<nav class="nav">
-				<a href="./upload.html" class="nav__btn nav__btn--normal">Crear Gifos</a>
-				<div class="nav__ dropdown">
-					<a href="#" class="nav__btn nav__btn--dropdown dropbtn nav__btn--normal" onclick="myFunction()">
-						<div class="text">Elegir tema</div>
-						<div class="arrow">
-							<img src="./assets/dropdown.svg" alt="Drop down image arrow" />
+				<nav class="nav">
+					<a href="./upload.html" class="button">Crear Gifos</a>
+					<div class="nav__ dropdown">
+						<div class="button button--large nav__btn--dropdown">
+							<div class="text">Elegir tema</div>
+
+							<a href="#" class="arrow dropbtn" onclick="myFunction()">
+								<img src="./assets/dropdown.svg" alt="Drop down image arrow" />
+							</a>
 						</div>
-					</a>
 
-					<div class="nav__list">
-						<a href="#">Sailor Day</a>
-						<a href="#">Sailor Night</a>
+						<div id="myDropdown" class="dropdown-content nav__list">
+							<a href="#" class="button-inside sailorDay"
+								><span style="text-decoration-line: underline;">S</span>ailor Day</a
+							>
+							<a href="#" class="button-inside sailorNight">Sailor Night</a>
+						</div>
+					</div>
+					<a href="#" class="nav__btn--normal" id="change_color"
+						><span style="text-decoration-line: underline;">M</span>is Gifos</a
+					>
+				</nav>
+
+				<div class="searcher">
+					<div id="buscar" class="searcher__name">Buscar</div>
+					<div class="searcher__flexBox">
+						<input
+							autocomplete="off"
+							class="searcher__input"
+							id="searcher"
+							type="search"
+							placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
+						/>
+
+						<a href="#" class="searcher__button" id="btn">
+							<img src="./assets/lupa_inactive.svg" alt="" />
+							Buscar
+						</a>
 					</div>
 				</div>
-				<a href="#" class="nav__btn--normal"
-					><span style="text-decoration-line: underline;">M</span>is Gifos</a
-				>
-			</nav>
+			</header>
 
-			<div class="searcher">
-				<div class="searcher__name">Buscar</div>
-				<div class="searcher__flexBox">
-					<!-- <form class="searcher__flexBox"> -->
-					<input
-						autocomplete="off"
-						class="searcher__input"
-						id="searcher"
-						type="search"
-						placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
-					/>
-					<!-- <button class="searcher__button" id="btn">
-						<img src="./assets/lupa_inactive.svg" alt="" />
-						Buscar
-					</button> -->
-					<!-- </form> -->
-
-					<a href="#" class="searcher__button" id="btn">
-						<img src="./assets/lupa_inactive.svg" alt="" />
-						<!-- <img src="./assets/lupa.svg" alt="" /> -->
-						Buscar
+			<section class="suggestions">
+				<div class="subtitle">
+					<h3>Hoy te sugerimos:</h3>
+				</div>
+				<div class="suggestions__gifs">
+					<a target="blanck" class="content">
+						<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
+					</a>
+					<a target="blanck" class="content">
+						<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
+					</a>
+					<a target="blanck" class="content">
+						<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
+					</a>
+					<a target="blanck" class="content">
+						<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
 					</a>
 				</div>
-			</div>
-		</header>
+			</section>
 
-		<section class="suggestions">
-			<div class="subtitle">
-				<h3>Hoy te sugerimos:</h3>
-			</div>
-			<div class="suggestions__gifs">
-				<a target="blanck" class="content">
-					<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
-				</a>
-				<a target="blanck" class="content">
-					<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
-				</a>
-				<a target="blanck" class="content">
-					<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
-				</a>
-				<a target="blanck" class="content">
-					<img class="gif" style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" />
-				</a>
-			</div>
-		</section>
+			<section class="trends">
+				<div class="subtitle">
+					<h3>Tendencias:</h3>
+				</div>
 
-		<section class="trends">
-			<div class="subtitle">
-				<h3>Tendencias:</h3>
-			</div>
-
-			<div class="trends__gifs">
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content double_element1">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-				<a target="blanck" class="content double_element2">
-					<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
-				</a>
-			</div>
-		</section>
-
-		<script src="./GifOS.js"></script>
+				<div class="trends__gifs">
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content double_element1">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+					<a target="blanck" class="content double_element2">
+						<img style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);" class="gif" />
+					</a>
+				</div>
+			</section>
+		</div>
+		<script src="./scripts/GifOS.js"></script>
 	</body>
 </html>

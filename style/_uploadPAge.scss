@@ -1,6 +1,5 @@
 .alert {
 	margin: 17.7rem 37.8rem;
-
 	background: #e6e6e6;
 	box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
@@ -24,50 +23,20 @@
 	&__image {
 		margin-right: 1.6rem;
 	}
-}
-
-.bold-paragraph {
-	font-family: ChakraPetch-Bold;
-	margin-bottom: 1.7rem;
-}
-
-span {
-	font-family: ChakraPetch-Bold;
-}
-
-p {
-	font-size: 1.4rem;
-	&:not(:last-child) {
-		margin-bottom: 1.5rem;
+	&__boldParagraph {
+		font-family: ChakraPetch-Bold;
+		margin-bottom: 1.7rem;
 	}
 }
-.buttons {
+
+.buttons-uploadPage {
 	display: flex;
 	justify-content: flex-end;
 	padding-bottom: 3.6rem;
 	padding-right: 3.6rem;
 }
 
-.button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 14.4rem;
-	text-align: center;
-	height: 3.6rem;
-	text-decoration: none;
-
-	background: $color-bg-btnSailorDay;
-	border: 1px solid $color-boxshadow-blueDark;
-	box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-
-	&:not(:last-child) {
-		margin-right: 1.6rem;
-	}
-}
-
 /* hiding and showing information */
-
 .gifCreation {
 	display: none;
 	background: #e6e6e6;
@@ -85,7 +54,7 @@ p {
 		padding: 0.2rem;
 		background: #ffffff;
 		border: 1px solid #979797;
-		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 1px 1px 0 0 #000000;
 	}
 }
 .showCamera {

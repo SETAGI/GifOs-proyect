@@ -10,13 +10,20 @@
 	background: $color-bg-btnSailorDay;
 	border: 1px solid $color-boxshadow-blueDark;
 	box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+	position: relative;
 
-	&:not(:last-child) {
-		margin-right: 1.6rem;
-	}
+	&:hover {
+		background: #e6bbe2;
+		border: 1px solid #110038;
+		box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 
-	&--large {
-		width: 16.5rem;
+		&::before {
+			content: '';
+			width: 95%;
+			height: 80%;
+			border: 1px dotted #110038;
+			position: absolute;
+		}
 	}
 }
 

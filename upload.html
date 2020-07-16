@@ -3,19 +3,18 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Sebastian Tamayo" />
+		<meta name="description" content="gifs" />
 		<title>Upload || Gif</title>
 		<link rel="stylesheet" href="./style/main.css" />
 		<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 	</head>
-
 	<body>
 		<div class="header__welcomeVisitors">
 			<p>
-				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas:
-				12.765.803
+				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
 			</p>
 		</div>
-
 		<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
 		<section class="alert">
 			<div class="alert__nameWindow">Crear Gifs</div>
@@ -23,21 +22,16 @@
 				<div class="dialogueWindow__image">
 					<img src="./assets/window img.png" alt="window image" />
 				</div>
-
 				<div>
 					<h3 class="dialogueWindow__boldParagraph">
 						Aqui podras crear tus propios Gifs
 					</h3>
-
 					<div>
 						<p>
-							Crear tu <strong>gif</strong> es muy fácil, graba cualquier imagen con tu cámara y
-							obtén gifs personalizados. Los pasos para crear tu gif son:
+							Crear tu <strong>gif</strong> es muy fácil, graba cualquier imagen con tu cámara y obtén gifs personalizados. Los
+							pasos para crear tu gif son:
 						</p>
-						<p>
-							<strong>1)</strong> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
-						</p>
-
+						<p><strong>1)</strong> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
 						<p><strong>2)</strong> Capturar tu momento gif</p>
 						<p><strong>3)</strong> Revisar el momento</p>
 						<p><strong>4)</strong> Listo para subir y compartir!</p>
@@ -45,30 +39,50 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="buttons-uploadPage">
-				<a href="#" class="button button--cancel">Cancelar</a>
-				<a href="#" class="button button--comenzar" onclick="createFunction()">Comenzar</a>
+				<a href="./index.html" class="button button--cancel">Cancelar</a>
+				<a href="#" class="button button--comenzar" onclick="activateCamera()">Comenzar</a>
 			</div>
 		</section>
 
-		<section class="gifCreation">
-			<div class="alert__nameWindow">Un Chequeo Antes de Empezar</div>
-
-			<div class="gifCreation__video">
+		<section class="gifCreation" id="gifcreationId">
+			<div class="alert__nameWindow" id="windowName">Un Chequeo Antes de Empezar</div>
+			<div class="gifCreation__video" id="recordVideo">
 				<video id="video" autoplay="" playsinline=""></video>
 			</div>
-			<button id="start">Start Recording</button>
-			<button id="stop" disabled="">Stop Recording</button>
-		</section>
+			<div class="gifCreation__video gifCreated" id="showGif">
+				<img src="" alt="" class="gif" />
+			</div>
 
-		<div class="gifCreation__video gifCreated">
-			<img src="" alt="" class="gif" />
-		</div>
+			<div class="buttons-container">
+				<div class="buttonStyle btnStart" id="btn-capturar">
+					<div class="buttonStyle__img buttonStyle__img--sDay btnStart__camera">
+						<img src="./assets/camera.svg" alt="Drop down image camera" />
+					</div>
+					<a href="#windowName" class="buttonStyle__text buttonStyle__text--sDay btnStart__capture" id="start">
+						Capturar
+					</a>
+				</div>
+
+				<div class="buttonStyle btnStop" id="btn-listo">
+					<div class="buttonStyle__img buttonStyle__img--red btnStop__record">
+						<img src="./assets/recording.svg" alt="Drop down image camera" />
+					</div>
+					<a href="#windowName" class="buttonStyle__text buttonStyle__text--red btnStop__capture" id="stop">
+						Listo
+					</a>
+				</div>
+
+				<a href="#windowName" class="button" id="btn-repeat">Rpetir Captura</a>
+				<a href="#windowName" class="button" id="btn-upload">Subir Gif</a>
+			</div>
+		</section>
 
 		<!-- web streams API polyfill to support Firefox -->
 		<script src="https://unpkg.com/@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js"></script>
-
-		<!-- Main script -->
+		<!-- Main scripts -->
+		<script src="./scripts/functionsCreateGifs.js"></script>
 		<script src="./scripts/createGifos.js"></script>
 	</body>
 </html>

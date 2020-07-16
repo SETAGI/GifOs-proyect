@@ -1,117 +1,67 @@
 const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
 	URL_UPLOAD = 'http://upload.giphy.com/v1/gifs';
 
-function createFunction() {
-	document.querySelector('.gifCreation').classList.toggle('showCamera');
-	document.querySelector('.alert').classList.toggle('hiddenAlert');
+let recorder,
+	form = new FormData();
 
-	navigator.mediaDevices
-		.getUserMedia({
-			video: {
-				width: { ideal: 832 },
-				height: {
-					ideal: 434,
-				},
-			},
-			audio: false,
-		})
-		.then((stream) => {
-			document.getElementById('video').srcObject = stream;
-		});
+document.getElementById('gifcreationId').className = 'hidden';
+
+async function activateCamera() {
+	/* always the person reject the gif, the box text need to change */
+
+	document.getElementById('windowName').textContent = 'Un Chequeo Antes de Empezar';
+	document.getElementById('recordVideo').className = 'gifCreation__video';
+	document.getElementById('btn-capturar').className = 'buttonStyle btnStart';
+	document.querySelector('.alert').classList.toggle('hidden');
+	document.getElementById('showGif').className = 'hidden';
+	document.getElementById('btn-listo').className = 'hidden';
+	document.getElementById('btn-repeat').className = 'hidden';
+	document.getElementById('btn-upload').className = 'hidden';
+	document.getElementById('gifcreationId').className = 'gifCreation';
+
+	let response = await showCamera();
+	document.getElementById('video').srcObject = response;
 }
 
-let recorder;
+document.getElementById('start').onclick = async function () {
+	document.getElementById('btn-capturar').className = 'hidden';
+	document.getElementById('btn-listo').className = 'buttonStyle btnStop';
+	document.getElementById('windowName').textContent = 'Capturando tu gif';
 
-let gif_grabado;
+	let response = await showCamera();
 
-document.getElementById('start').onclick = function () {
-	this.disabled = true;
+	document.getElementById('video').srcObject = response;
 
-	navigator.mediaDevices
-		.getUserMedia({
-			video: {
-				width: { ideal: 832 },
-				height: {
-					ideal: 434,
-				},
-			},
-			audio: false,
-		})
-		.then(function (stream) {
-			document.getElementById('video').srcObject = stream;
-
-			recorder = RecordRTC(stream, {
-				type: 'gif',
-				quality: 10,
-				width: 832,
-				height: 434,
-				hidden: 240,
-				frameRate: 1,
-			});
-
-			recorder.startRecording();
-
-			document.getElementById('stop').disabled = false;
-		});
+	recorder = RecordRTC(response, {
+		type: 'gif',
+		quality: 10,
+		width: 832,
+		height: 434,
+		frameRate: 5,
+	});
+	recorder.startRecording();
+	document.getElementById('stop').disabled = false;
 };
 
 document.getElementById('stop').onclick = function () {
-	document.getElementById('video').srcObject = null;
+	document.getElementById('btn-listo').className = 'hidden';
+	document.getElementById('recordVideo').className = 'hidden';
+	document.getElementById('btn-repeat').className = 'button';
+	document.getElementById('btn-upload').className = 'button';
+	document.getElementById('windowName').textContent = 'Vista previa';
+	document.getElementById('showGif').className = 'gifCreation__video';
 
-	this.disabled = true;
+	recorder.stopRecording(async function (blob) {
+		document.querySelector('.gif').src = URL.createObjectURL(recorder.getBlob()); //this gif i put when i delete the recorder camera
 
-	recorder.stopRecording(function (blob) {
-		// recorder.camera.stop();
-		document.getElementById('start').disabled = false;
+		document.getElementById('btn-repeat').addEventListener('click', activateCamera);
 
-		let form = new FormData();
-		form.append('file', recorder.getBlob(), 'myGif.gif');
-
-		document.querySelector('.gif').src = URL.createObjectURL(recorder.getBlob());
-		gif_grabado = URL.createObjectURL(recorder.getBlob());
-
-		fetch('https://upload.giphy.com/v1/gifs?api_key=BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM', {
-			method: 'POST',
-			body: form,
-		})
-			.then((response) => {
-				console.log(response);
-				return response.json();
-			})
-			.then((data) => {
-				console.log('string data', data);
-				let gifId = data.data.id;
-				getGifDetails(gifId);
-			})
-			.catch(function (error) {
-				console.error(error);
-			});
-
-		// console.log(form.get('file'));
-		//JQhP1sBxi7d1SKpBsMlFDJYPGUobpcpK
-		// fetch({
-		// 	type: 'POST',
-		// 	url: 'http://upload.giphy.com/v1/gifs?api_key=JQhP1sBxi7d1SKpBsMlFDJYPGUobpcpK',
-		// 	data: {
-		// 		username: 'SETAGI',
-		// 		api_key: APIKey,
-		// 		// file: YOUR_FILE,
-		// 		source_image_url: gif_grabado,
-		// 		tags: 'YOUR_TAGS',
-		// 	},
-		// 	success: 'YOUR_SUCCESS_HANDLER',
-		// 	error: 'YOUR_ERROR_HANDLER',
-		// })
-		// 	.then((response) => console.log(response))
-		// 	.catch((error) => console.error(error));
+		document.getElementById('btn-upload').addEventListener('click', async () => {
+			form.append('file', recorder.getBlob(), 'myGif.gif');
+			const dataPOST = await getPOST();
+			let gifId = dataPOST.data.id;
+			const urlGif = await getGif(gifId);
+			console.log(urlGif);
+		});
 	});
 };
-
-function getGifDetails(id) {
-	fetch(`http://api.giphy.com/v1/gifs/${id}?api_key=BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM`)
-		.then((response) => response.json())
-		.then((data) => {
-			const gifURL = data.data.url;
-			console.log('gifdetails', gifURL);
-		});
-}

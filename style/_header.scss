@@ -1,16 +1,12 @@
 .header {
 	&__welcomeVisitors {
-		display: flex;
-		align-items: center;
 		height: 2.3rem;
-		background-image: $color-bg-gradienSailorDay;
-		box-shadow: 0 1px 0 0 $color-boxshadow-blueDark;
-
-		p {
-			margin: 0 1rem;
-			font-size: 1.2rem;
-			color: #ffffff;
-		}
+		@include flex-align;
+		font-size: 1.2rem;
+		padding: 0 1rem;
+		color: $color-secondary;
+		background-image: $color-bg-gradientSailorDay;
+		box-shadow: 0 1px 0 0 $color-primary;
 	}
 
 	&__logo {
@@ -21,211 +17,159 @@
 }
 
 .nav {
-	display: flex;
+	@include flex-align;
 	justify-content: flex-end;
 	margin: 4.4rem 10rem;
-	align-items: center;
-
-	&__dropdown {
-		margin: 0 2rem;
-	}
 
 	&__btn--dropdown {
-		// border: 1px solid #110038;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include flex-align;
 		width: 16.7rem;
+
+		justify-content: space-between;
 
 		.text {
 			width: 13.1rem;
-			color: #110038;
 			height: 3.2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: #f7c9f3;
-			border: 0.2px solid $color-boxshadow-blueDark;
-			border-right: none;
-			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 			position: relative;
+			@include flex-align;
+			justify-content: center;
+			color: $color-primary;
+			@include button-decoration-sDay;
+			border-right: none;
 		}
 
 		.arrow {
 			width: 3.6rem;
 			height: 3.2rem;
-			display: flex;
+			@include flex-align;
 			justify-content: center;
-			align-items: center;
-			background: #f7c9f3;
-			border: 0.2px solid $color-boxshadow-blueDark;
-			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-			position: relative;
-			// z-index: 3;
+			@include button-decoration-sDay;
 		}
 	}
 
 	&__list {
 		display: none;
-		position: absolute;
+		z-index: 1;
 		width: 16.7rem;
 		height: 10.2rem;
-		background: #e6e6e6;
-		box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-		z-index: 5;
+		position: absolute;
+		background: $color-whiteGrey;
+		box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 		.button-inside {
-			color: #110038;
-			margin: 0.6rem 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			width: 15rem;
-			text-align: center;
 			height: 3rem;
+			margin: 0.6rem 0;
+			@include flex-align;
+			justify-content: center;
+			color: $color-primary;
 			text-decoration: none;
-			border: 1px solid $color-boxshadow-blueDark;
-			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-		}
-		.sailorDay {
-			background: #fff4fd;
+			background: $color-pale-whiteGrey;
+			border: 1px solid $color-medium-gray;
+			box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+
+			&:hover {
+				background: $color-lighter-whitePurple;
+				border: 1px solid $color-pale-whitePurple;
+			}
 		}
 	}
 
 	&__btn--normal {
-		color: #110038;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-decoration: none;
 		width: 8rem;
 		height: 3.2rem;
+		margin-left: 2rem;
+		@include flex-align;
+		text-decoration: none;
+		color: $color-primary;
+		justify-content: center;
 		border: 1px solid transparent;
+
 		&:hover {
-			border: 1px dotted #110038;
+			border: 1px dotted $color-primary;
 		}
+
 		&:active {
-			color: #b4b4b4;
-			border: 1px solid transparent;
-		}
-	}
-	&__btn--sailorNight {
-		color: #ffffff;
-		&:hover {
-			border: 1px dotted #ffffff;
-		}
-		&:active {
-			color: #b4b4b4;
+			color: $color-light-gray;
 			border: 1px solid transparent;
 		}
 	}
 }
+
 .dotted {
 	&:hover {
 		.dotted__text {
-			background: #e6bbe2;
-			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+			background: $color-whitePurple;
+			box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+
 			&::after {
 				content: '';
 				width: 95%;
 				height: 80%;
-				border: 1px dotted #110038;
 				position: absolute;
+				border: 1px dotted $color-primary;
 			}
 		}
+
 		.dotted__arrow {
-			background: #e6bbe2;
-			box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 			position: relative;
+			background: $color-whitePurple;
+			box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+
 			&::after {
 				content: '';
+				right: 5%;
 				width: 83%;
 				height: 80%;
-				border: 1px dotted #110038;
 				position: absolute;
-				right: 5%;
+				border: 1px dotted $color-primary;
 			}
 		}
 	}
 }
 
+/* appears when the user press the dropdown menu (select theme) */
 .show {
-	display: flex;
+	@include flex-align;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 }
+/* END */
 
 .searcher {
+	height: 9.9rem;
 	padding: 0.2rem;
 	margin: 0 10rem;
-	height: 9.9rem;
-	background: #e6e6e6;
-	box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 	position: relative;
+	background: $color-whiteGrey;
+	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	&__name {
+		@include flex-align;
 		height: 2.4rem;
-
-		color: white;
-		font-family: ChakraPetch-Bold;
-		display: flex;
-		align-items: center;
 		padding-left: 1rem;
-		background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+		color: $color-secondary;
+		font-family: ChakraPetch-Bold;
+		background-image: $color-bg-gradientSailorDay;
 	}
 
 	&__flexBox {
-		display: flex;
+		@include flex-align;
 		justify-content: space-between;
-		align-items: center;
 	}
 
 	&__input {
 		width: 90%;
 		outline: none;
-		font-size: 1.6rem;
-		font-family: ChakraPetch-Regular;
-		margin: 1.2rem 1.2rem;
 		height: 4.8rem;
-		border: 1px solid #979797;
-		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 1px 1px 0 0 #000000;
-	}
-
-	&__button {
-		color: #b4b4b4;
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		padding-right: 1rem;
-		margin-right: 1.2rem;
-		width: 10.2rem;
-		height: 3.6rem;
-		border: 1px solid #808080;
-		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
-		text-decoration: none;
-	}
-	.pushed_button {
-		color: #110038;
-		background: #f7c9f3;
-		border: 1px solid #110038;
-		box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-		position: relative;
-
-		&:active {
-			&::after {
-				content: '';
-				width: 96%;
-				height: 90%;
-				border: 1px dotted #110038;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50.8%, -50%);
-			}
-		}
+		font-size: 1.6rem;
+		margin: 1.2rem 1.2rem;
+		border: 1px solid $color-mediumLow-gray;
+		font-family: ChakraPetch-Regular;
+		box-shadow: inset -2px -2px 0 0 $color-whiteGrey, inset 1px 1px 0 0 $color-primary;
 	}
 }
+
 .help__list {
 	display: none;
 	position: absolute;
@@ -234,29 +178,28 @@
 	padding: 1.6rem 0;
 	top: 10.2rem;
 	left: 0;
-	background: #e6e6e6;
-	box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+	background: $color-whiteGrey;
+	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	.buttonHelp {
-		display: flex;
-		align-items: center;
+		@include flex-align;
+		position: relative;
 		text-decoration: none;
 		width: 86.5%;
 		padding-left: 1rem;
 		height: 3.6rem;
 		margin-left: 1.6rem;
-		background: #f0f0f0;
-		border: 1px solid #808080;
-		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
-		position: relative;
+		background: $color-pale-whiteGrey;
+		border: 1px solid $color-medium-gray;
+		box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
 
 		&:hover {
-			background: #e6e6e6;
+			background: $color-whiteGrey;
 			&::after {
 				content: '';
 				width: 99.6%;
 				height: 90%;
-				border: 1px dotted #110038;
+				border: 1px dotted $color-primary;
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -270,15 +213,8 @@
 	}
 }
 
+/* appears when the user press the dropdown help menu */
 .show_helpMenu {
 	display: flex;
 	flex-direction: column;
-}
-
-.change_color_body {
-	background-color: #110038;
-}
-.change_color_gradient {
-	background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
-	box-shadow: 0 1px 0 0 #110038;
 }

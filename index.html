@@ -3,49 +3,49 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Sebastian Tamayo" />
+		<meta name="description" content="gifs" />
 		<title>GifOS | The best place to enjoy</title>
 		<link rel="stylesheet" href="./style/main.css" />
-		<!-- API KEY: BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM-->
 	</head>
+
 	<body>
-		<div id="contenedor" class="container">
+		<div id="containerId" class="container">
 			<header class="header">
 				<div id="welcomeBar" class="header__welcomeVisitors">
-					<p>
-						¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas:
-						12.765.803
-					</p>
+					¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
 				</div>
-
 				<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
-
 				<nav class="nav">
-					<a href="./upload.html" class="button">Crear Gifos</a>
-
+					<a href="./upload.html" class="button" id="button_createGifs">Crear Gifs</a>
 					<div class="nav__dropdown">
-						<div class="nav__btn--dropdown dotted">
-							<div class="text dotted__text">Elegir tema</div>
-							<a href="#" class="arrow dropbtn dotted__arrow" onclick="myFunction()">
-								<img src="./assets/dropdown.svg" alt="Drop down image arro" />
+						<div class="nav__btn--dropdown dotted" id="dualButton">
+							<div class="text dotted__text textButton_sailorNight" id="button_text_chooseTheme">
+								Elegir tema
+							</div>
+							<a
+								href="#"
+								class="arrow dropbtn dotted__arrow arrowButton_sailorNight"
+								id="button_dropdownArrow"
+								onclick="myFunction()"
+							>
+								<img src="./assets/dropdown.svg" alt="Drop down image arrow" />
 							</a>
 						</div>
-
 						<div id="myDropdown" class="nav__list">
-							<a href="#" class="button-inside sailorDay"
+							<a href="#" class="button-inside sailorDay button-sailorNight"
 								><span style="text-decoration-line: underline;">S</span>ailor Day</a
 							>
-							<a href="#" class="button-inside sailorNight">Sailor Night</a>
+							<a href="#" class="button-inside sailorNight button-sailorNight">Sailor Night</a>
 						</div>
 					</div>
 					<a href="#" class="nav__btn--normal" id="change_color"
 						><span style="text-decoration-line: underline;">M</span>is Gifos</a
 					>
 				</nav>
-
-				<div class="searcher">
-					<div id="buscar" class="searcher__name">Buscar</div>
-
-					<div class="searcher__flexBox">
+				<div class="searcher" id="search">
+					<div id="buscar" class="searcher__name changeColorGradient-sNight">Buscar</div>
+					<div class="searcher__flexBox containerBtn-search-sNigh">
 						<input
 							autocomplete="off"
 							class="searcher__input dropbtn_helpMenu"
@@ -54,151 +54,156 @@
 							placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
 							onclick="helpDropDownMenu()"
 						/>
-
-						<a href="#" class="searcher__button" id="btn">
-							<img src="./assets/lupa_inactive.svg" alt="" />
+						<a href="#" class="searcherbutton" id="btn">
+							<img src="./assets/lupa_inactive.svg" alt="" class="lupa-button" />
 							Buscar
 						</a>
 					</div>
-
-					<div id="help_dropdown" class="help__list">
-						<a href="#" class="buttonHelp first_button_help">hola</a>
-						<a href="#" class="buttonHelp second_button_help">hola</a>
-						<a href="#" class="buttonHelp third_button_help">hola</a>
+					<div id="help_dropdown" class="help__list help_dropd-sNight">
+						<a href="#" class="buttonHelp first_button_help buttonHelp-sNight">hola</a>
+						<a href="#" class="buttonHelp second_button_help buttonHelp-sNight">hola</a>
+						<a href="#" class="buttonHelp third_button_help buttonHelp-sNight">hola</a>
 					</div>
 				</div>
 			</header>
 
-			<section class="suggestions">
-				<div class="subtitle">
+			<!-- <section class="suggestions" id="suggestionsId">
+				<div class="subtitle suggestions-subtitle-sNight">
 					<h3>Hoy te sugerimos:</h3>
 				</div>
-				<div class="suggestions__gifs">
-					<div class="gifContainer">
-						<div class="gifContainer__hashtagName">
+				<div class="suggestions__gifs" id="suggestions-gifsID">
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
 							<h3>#Name</h3>
 							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
 						</div>
 						<a target="blanck" class="content">
-							<img
-								class="gif"
-								style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							/>
+							<img class="gif" />
 						</a>
-						<a href="#" class="gifContainer__seeMore">Ver más...</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
 					</div>
-
-					<div class="gifContainer">
-						<div class="gifContainer__hashtagName">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-
-						<a target="blanck" class="content">
-							<img
-								class="gif"
-								style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							/>
-						</a>
-						<a href="#" class="gifContainer__seeMore">Ver más...</a>
-					</div>
-
-					<div class="gifContainer">
-						<div class="gifContainer__hashtagName">
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
 							<h3>#Name</h3>
 							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
 						</div>
 						<a target="blanck" class="content">
-							<img
-								class="gif"
-								style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							/>
+							<img class="gif" />
 						</a>
-						<a href="#" class="gifContainer__seeMore">Ver más...</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
 					</div>
-
-					<div class="gifContainer">
-						<div class="gifContainer__hashtagName">
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
 							<h3>#Name</h3>
-
+							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
+						</div>
+						<a target="blanck" class="content">
+							<img class="gif" />
+						</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
+					</div>
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
+							<h3>#Name</h3>
 							<a href="#" class="exitButton"><img src="./assets/close.svg" alt="close button" /></a>
 						</div>
 						<a target="blanck" class="content">
-							<img
-								class="gif"
-								style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							/>
+							<img class="gif" />
 						</a>
-						<a href="#" class="gifContainer__seeMore">Ver más...</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
 					</div>
+				</div>
+			</section> -->
+
+			<section class="suggestions" id="suggestionsId">
+				<div class="subtitle suggestions-subtitle-sNight">
+					<h3>Hoy te sugerimos:</h3>
+				</div>
+
+				<div class="suggestions__gifs" id="suggestions-gifsID">
+					<!-- <div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
+							<h3>#Name</h3>
+							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
+						</div>
+						<a target="blanck" class="content">
+							<img class="gif" />
+						</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
+					</div>
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
+							<h3>#Name</h3>
+							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
+						</div>
+						<a target="blanck" class="content">
+							<img class="gif" />
+						</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
+					</div>
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
+							<h3>#Name</h3>
+							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
+						</div>
+						<a target="blanck" class="content">
+							<img class="gif" />
+						</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
+					</div>
+					<div class="gifContainer gifContainer-sailorNight">
+						<div class="gifContainer__hashtagName hashtag-sailorNight">
+							<h3>#Name</h3>
+							<a href="#" class="exitButton"><img src="./assets/close.svg" alt="close button" /></a>
+						</div>
+						<a target="blanck" class="content">
+							<img class="gif" />
+						</a>
+						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
+					</div> -->
 				</div>
 			</section>
 
-			<section class="trends">
-				<div class="subtitle">
+			<section class="trends" id="trendsId">
+				<div class="subtitle trends-subtitle-sNight">
 					<h3>Tendencias:</h3>
 				</div>
-
 				<div class="trends__gifs">
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content double_element1">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
 					</a>
 					<a target="blanck" class="content double_element2">
-						<img
-							style="background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);"
-							class="gif"
-						/>
+						<img class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img class="gif" />
+					</a>
+					<a target="blanck" class="content">
+						<img class="gif" />
 					</a>
 				</div>
 			</section>

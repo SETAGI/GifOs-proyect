@@ -1,27 +1,85 @@
 .button {
-	color: #110038;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 14rem;
-	text-align: center;
 	height: 3.2rem;
-	text-decoration: none;
-	background: $color-bg-btnSailorDay;
-	border: 1px solid $color-boxshadow-blueDark;
-	box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 	position: relative;
+	@include flex-align;
+	text-decoration: none;
+	color: $color-primary;
+	justify-content: center;
+	@include button-decoration-sDay;
+
+	&:not(:last-child) {
+		margin-right: 2rem;
+	}
 
 	&:hover {
-		background: #e6bbe2;
-		border: 1px solid #110038;
-		box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+		background: $color-whitePurple;
+		border: 1px solid $color-primary;
 
 		&::before {
 			content: '';
 			width: 95%;
 			height: 80%;
-			border: 1px dotted #110038;
+			border: 1px dotted $color-primary;
+			position: absolute;
+		}
+	}
+}
+
+.searcherbutton {
+	@include flex-align;
+	width: 10.2rem;
+	height: 3.6rem;
+	color: $color-light-gray;
+	padding-right: 1rem;
+	margin-right: 1.2rem;
+	text-decoration: none;
+	border: 1px solid $color-medium-gray;
+	justify-content: space-around;
+	box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+}
+
+.pushed_button {
+	color: $color-primary;
+	background: $color-bg-btnSailorDay;
+	border: 1px solid $color-primary;
+	box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+	position: relative;
+
+	&:active {
+		background: $color-whitePurple;
+		border: 1px solid $color-primary;
+		box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+
+		&::after {
+			@include dotted-lines-button;
+		}
+	}
+}
+
+.button-seeMore {
+	position: absolute;
+	@include flex-align;
+	justify-content: center;
+	font-size: 1.4rem;
+	bottom: 5%;
+	left: 2%;
+	height: 3.2rem;
+	width: 7.9rem;
+	text-decoration: none;
+	background: $color-lighter-blue;
+	border: 1px solid $color-medium-purple;
+	color: $color-secondary;
+	box-shadow: inset -2px -2px 0 0 $color-soft-blue, inset 2px 2px 0 0 $color-secondary;
+
+	&:hover {
+		background: $color-light-blue;
+
+		&::after {
+			content: '';
+			width: 93%;
+			height: 87%;
+			border: 1px dotted $color-primary;
 			position: absolute;
 		}
 	}
@@ -33,6 +91,7 @@
 
 p {
 	font-size: 1.4rem;
+
 	&:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}

@@ -2,15 +2,31 @@
 
 const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
 	URL = 'http://api.giphy.com/v1/gifs/search?',
-	URL2 = 'http://api.giphy.com/v1/gifs/trending?',
-	gifs = document.querySelectorAll('.content');
+	URL2 = 'http://api.giphy.com/v1/gifs/trending?';
+gifs = document.querySelectorAll('.content');
+// let gifcontainer = document.getElementById('suggestions-gifsID');
+// let div1;
 
 let randomArray = new Array();
 
+// const showGifs = async (random, gifdata) => {
+// 	for (let i = 0; i < 4; i++) {
+// 		div1 = document.createElement('div');
+// 		div1.className = 'gifContainer gifContainer-sailorNight';
+// 		gifcontainer.appendChild(div1);
+// 	}
+
+// 	console.log(gifcontainer);
+
+// 	// for (let i of gifs.keys()) {
+// 	// 	gifs[i].querySelector('.gif').src = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
+// 	// 	gifs[i].href = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
+// 	// }
+// };
+
 const showGifs = async (random, gifdata) => {
 	for (let i of gifs.keys()) {
-		gifs[i].querySelector('.gif').src = await gifdata.data[random[i]].images
-			.fixed_height_downsampled.webp;
+		gifs[i].querySelector('.gif').src = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
 		gifs[i].href = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
 	}
 };

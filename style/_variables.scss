@@ -1,8 +1,75 @@
 /*--------------------------------- MAIN COLORS --------------------------------- */
+$color-primary: #110038;
+$color-secondary: #ffffff;
+$color-pale-whiteGrey: #f0f0f0;
+$color-whiteGrey: #e6e6e6;
+$color-Lighter-gray: #cccccc;
+$color-light-gray: #b4b4b4;
+$color-mediumLow-gray: #979797;
+$color-medium-gray: #808080;
+$color-dark-gray: #5c5c5c;
+$color-lighter-blue: #4180f6;
+$color-light-blue: #3a72db;
+$color-soft-blue: #284f99;
+$color-blue: #2e32fb;
+$color-medium-blue: #2629cc;
+$color-lighter-whitePurple: #fff4fd;
+$color-pale-whitePurple: #cca6c9;
+$color-whitePurple: #e6bbe2;
+$color-pale-purple: #997d97;
+$color-light-purple: #ee3efe;
+$color-purple: #a72cb3;
+$color-medium-purple: #4c2f99;
 
-// background Sailor day
-$color-bg-gradienSailorDay: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+// Sailor day
+$color-bg-gradientSailorDay: linear-gradient(270deg, #f7c9f3 0%, $color-lighter-blue 100%);
 $color-bg-btnSailorDay: #f7c9f3;
 
-// Box shadow
-$color-boxshadow-blueDark: #110038;
+// Sailor night
+$color-bg-gradientSailorNight: linear-gradient(270deg, $color-light-purple 0%, $color-blue 100%);
+
+/* ----------------------------------- MIXINS ------------------------------ */
+
+@mixin flex-align {
+	display: flex;
+	align-items: center;
+}
+
+// mixin box decoration subtitles
+@mixin box-subtitle-sNight {
+	background: #fffafe;
+	border: 1px solid $color-blue;
+	box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+}
+
+// mixin background and box shadow to buttons
+@mixin bg-buttons-sNight {
+	background: #ce36db;
+	box-shadow: inset -1px -1px 0 0 $color-purple, inset 1px 1px 0 0 $color-secondary;
+}
+
+// mixin search button with dotted lines
+@mixin dotted-lines-button {
+	content: '';
+	width: 96%;
+	height: 90%;
+	border: 1px dotted $color-primary;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50.8%, -50%);
+}
+
+// mixin box decoration buttons sailor day
+@mixin button-decoration-sDay {
+	background: $color-bg-btnSailorDay;
+	border: 0.2px solid $color-primary;
+	box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+}
+
+// mixin box decoration button stop recording red
+@mixin button-decoration-red {
+	background: #ff6161;
+	border: 1px solid #110038;
+	box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}

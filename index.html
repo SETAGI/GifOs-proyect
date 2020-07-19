@@ -54,10 +54,11 @@
 							placeholder="Busca gifs, hashtags, temas, busca lo que quieras…"
 							onclick="helpDropDownMenu()"
 						/>
-						<a href="#" class="searcherbutton" id="btn">
+
+						<button onclick="location.href='#positionSearch'" disabled href="#" class="searcherbutton" id="btn">
 							<img src="./assets/lupa_inactive.svg" alt="" class="lupa-button" />
 							Buscar
-						</a>
+						</button>
 					</div>
 					<div id="help_dropdown" class="help__list help_dropd-sNight">
 						<a href="#" class="buttonHelp first_button_help buttonHelp-sNight">hola</a>
@@ -67,149 +68,26 @@
 				</div>
 			</header>
 
-			<!-- <section class="suggestions" id="suggestionsId">
-				<div class="subtitle suggestions-subtitle-sNight">
-					<h3>Hoy te sugerimos:</h3>
-				</div>
-				<div class="suggestions__gifs" id="suggestions-gifsID">
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#" class="exitButton"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-				</div>
-			</section> -->
-
 			<section class="suggestions" id="suggestionsId">
 				<div class="subtitle suggestions-subtitle-sNight">
 					<h3>Hoy te sugerimos:</h3>
 				</div>
-
-				<div class="suggestions__gifs" id="suggestions-gifsID">
-					<!-- <div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div>
-					<div class="gifContainer gifContainer-sailorNight">
-						<div class="gifContainer__hashtagName hashtag-sailorNight">
-							<h3>#Name</h3>
-							<a href="#" class="exitButton"><img src="./assets/close.svg" alt="close button" /></a>
-						</div>
-						<a target="blanck" class="content">
-							<img class="gif" />
-						</a>
-						<a href="#" class="button-seeMore button-seeMore-sNight">Ver más...</a>
-					</div> -->
-				</div>
+				<div class="suggestions__gifs" id="suggestions-gifsID"></div>
 			</section>
 
 			<section class="trends" id="trendsId">
-				<div class="subtitle trends-subtitle-sNight">
-					<h3>Tendencias:</h3>
+				<div class="subtitle trends-subtitle-sNight" id="positionSearch">
+					<h3 id="searchName">Tendencias:</h3>
 				</div>
-				<div class="trends__gifs">
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content double_element1">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content double_element2">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-					<a target="blanck" class="content">
-						<img class="gif" />
-					</a>
-				</div>
+				<div class="trends__gifs" id="trendsGifsId"></div>
 			</section>
 		</div>
+		<script src="./scripts/container-creation.js"></script>
 		<script src="./scripts/dropdownmenus.js"></script>
+		<script src="./scripts/themeChange.js"></script>
+		<script src="./scripts/deleteAndCreationCard.js"></script>
+		<script src="./scripts/searchModule.js"></script>
 		<script src="./scripts/eventListeners.js"></script>
-		<script src="./scripts/GifOS.js"></script>
+		<script src="./scripts/main.js"></script>
 	</body>
 </html>

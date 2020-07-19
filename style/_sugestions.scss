@@ -2,9 +2,8 @@
 	margin: 3rem 10rem;
 
 	&__gifs {
-		@include flex-align;
+		@include flex(center, center, null);
 		margin-top: 1.9rem;
-		justify-content: center;
 
 		.content {
 			width: 100%;
@@ -43,12 +42,12 @@
 }
 
 .gifContainer {
-	width: 25%;
+	@include flex(null, null, column);
+	width: 100%;
+	height: auto;
 	padding: 0.2%;
-	display: flex;
 	position: relative;
 	background: $color-whiteGrey;
-	flex-direction: column;
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	&:not(:last-child) {
@@ -56,13 +55,12 @@
 	}
 
 	&__hashtagName {
-		@include flex-align;
+		@include flex(space-between, center, null);
 		height: 2.2rem;
 		padding: 0 0.5rem;
 		font-size: 1.4rem;
 		margin-bottom: 0.5%;
 		color: $color-secondary;
-		justify-content: space-between;
 		background-image: $color-bg-gradientSailorDay;
 	}
 }

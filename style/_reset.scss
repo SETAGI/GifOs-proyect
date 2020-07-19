@@ -90,6 +90,10 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+button {
+	all: unset;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -107,7 +111,7 @@ section {
 body {
 	line-height: 1;
 	font-size: 1.6rem;
-	font-family: ChakraPetch-Regular;
+	font-family: 'Chakra Petch', sans-serif;
 	color: #110038;
 }
 ol,

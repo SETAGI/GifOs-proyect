@@ -4,36 +4,34 @@
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	&__nameWindow {
+		@include flex(null, center, null);
 		height: 2.4rem;
 		margin: 0.2rem;
 		padding-left: 1rem;
-		@include flex-align;
 		color: $color-secondary;
-		font-family: ChakraPetch-Bold;
+		font-weight: bold;
 		background-image: $color-bg-gradientSailorDay;
 	}
 }
 
 .dialogueWindow {
 	margin: 3.2rem 2.5rem;
-	display: flex;
-	justify-content: space-around;
+	@include flex(space-around, center, null);
 
 	&__image {
 		margin-right: 1.6rem;
 	}
 
 	&__boldParagraph {
-		font-family: ChakraPetch-Bold;
+		font-weight: bold;
 		margin-bottom: 1.7rem;
 	}
 }
 
 .buttons-uploadPage {
-	display: flex;
+	@include flex(flex-end, center, null);
 	padding-right: 3.6rem;
 	padding-bottom: 3.6rem;
-	justify-content: flex-end;
 }
 
 /* hiding and showing information */
@@ -62,8 +60,7 @@
 
 /* -------------------------------- buttons ---------------------------------- */
 .buttons-container {
-	display: flex;
-	justify-content: flex-end;
+	@include flex(flex-end, center, null);
 	align-items: center;
 	height: 7.3rem;
 	width: 83.2rem;
@@ -74,10 +71,9 @@
 	display: flex;
 
 	&__img {
-		@include flex-align;
+		@include flex(center, center, null);
 		width: 3.6rem;
 		height: 3.2rem;
-		justify-content: center;
 
 		&--sDay {
 			@include button-decoration-sDay;
@@ -91,10 +87,9 @@
 	}
 
 	&__text {
-		@include flex-align;
+		@include flex(center, center, null);
 		width: 13.1rem;
 		height: 3.2rem;
-		justify-content: center;
 		text-decoration: none;
 		color: $color-primary;
 

@@ -29,10 +29,11 @@ $color-bg-btnSailorDay: #f7c9f3;
 $color-bg-gradientSailorNight: linear-gradient(270deg, $color-light-purple 0%, $color-blue 100%);
 
 /* ----------------------------------- MIXINS ------------------------------ */
-
-@mixin flex-align {
+@mixin flex($justify-content, $align-items, $flex-direction) {
 	display: flex;
-	align-items: center;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $flex-direction;
 }
 
 // mixin box decoration subtitles

@@ -1,7 +1,7 @@
 .header {
 	&__welcomeVisitors {
+		@include flex(null, center, null);
 		height: 2.3rem;
-		@include flex-align;
 		font-size: 1.2rem;
 		padding: 0 1rem;
 		color: $color-secondary;
@@ -17,32 +17,27 @@
 }
 
 .nav {
-	@include flex-align;
-	justify-content: flex-end;
+	@include flex(flex-end, center, null);
 	margin: 4.4rem 10rem;
 
 	&__btn--dropdown {
-		@include flex-align;
+		@include flex(space-between, center, null);
 		width: 16.7rem;
 
-		justify-content: space-between;
-
 		.text {
+			@include flex(center, center, null);
 			width: 13.1rem;
 			height: 3.2rem;
 			position: relative;
-			@include flex-align;
-			justify-content: center;
 			color: $color-primary;
 			@include button-decoration-sDay;
 			border-right: none;
 		}
 
 		.arrow {
+			@include flex(center, center, null);
 			width: 3.6rem;
 			height: 3.2rem;
-			@include flex-align;
-			justify-content: center;
 			@include button-decoration-sDay;
 		}
 	}
@@ -57,11 +52,10 @@
 		box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 		.button-inside {
+			@include flex(center, center, null);
 			width: 15rem;
 			height: 3rem;
 			margin: 0.6rem 0;
-			@include flex-align;
-			justify-content: center;
 			color: $color-primary;
 			text-decoration: none;
 			background: $color-pale-whiteGrey;
@@ -76,13 +70,12 @@
 	}
 
 	&__btn--normal {
+		@include flex(center, center, null);
 		width: 8rem;
 		height: 3.2rem;
 		margin-left: 2rem;
-		@include flex-align;
 		text-decoration: none;
 		color: $color-primary;
-		justify-content: center;
 		border: 1px solid transparent;
 
 		&:hover {
@@ -130,9 +123,7 @@
 
 /* appears when the user press the dropdown menu (select theme) */
 .show {
-	@include flex-align;
-	flex-direction: column;
-	justify-content: center;
+	@include flex(center, center, column);
 }
 /* END */
 
@@ -145,17 +136,16 @@
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	&__name {
-		@include flex-align;
+		@include flex(null, center, null);
 		height: 2.4rem;
 		padding-left: 1rem;
 		color: $color-secondary;
-		font-family: ChakraPetch-Bold;
+		font-weight: bold;
 		background-image: $color-bg-gradientSailorDay;
 	}
 
 	&__flexBox {
-		@include flex-align;
-		justify-content: space-between;
+		@include flex(space-between, center, null);
 	}
 
 	&__input {
@@ -165,7 +155,6 @@
 		font-size: 1.6rem;
 		margin: 1.2rem 1.2rem;
 		border: 1px solid $color-mediumLow-gray;
-		font-family: ChakraPetch-Regular;
 		box-shadow: inset -2px -2px 0 0 $color-whiteGrey, inset 1px 1px 0 0 $color-primary;
 	}
 }
@@ -182,7 +171,7 @@
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	.buttonHelp {
-		@include flex-align;
+		@include flex(null, center, null);
 		position: relative;
 		text-decoration: none;
 		width: 86.5%;
@@ -215,6 +204,5 @@
 
 /* appears when the user press the dropdown help menu */
 .show_helpMenu {
-	display: flex;
-	flex-direction: column;
+	@include flex(null, null, column);
 }

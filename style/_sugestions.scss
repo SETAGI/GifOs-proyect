@@ -6,15 +6,12 @@
 		margin-top: 1.9rem;
 
 		.content {
-			width: 100%;
-			height: 220px;
+			@include width-height-position(100%, 220px, null);
 			&:hover {
 				&::after {
 					content: '';
-					width: 97%;
-					height: 87%;
+					@include width-height-position(97%, 87%, absolute);
 					border: 1px dotted $color-primary;
-					position: absolute;
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%, -44.6%);
@@ -22,8 +19,7 @@
 			}
 
 			.gif {
-				width: 100%;
-				height: 100%;
+				@include width-height-position(100%, 100%, null);
 			}
 		}
 	}
@@ -31,9 +27,8 @@
 
 .subtitle {
 	margin: 0 auto;
-	background: #fffafe;
-	border: 1px solid $color-whitePurple;
-	box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+	@include background-border-color($color-lighter-lower-whitePurple, 1px solid $color-whitePurple, null);
+	box-shadow: inset -2px -2px 0 0 $color-lighter-low-whitePurple, inset 2px 2px 0 0 $color-purple-gray;
 
 	h3 {
 		margin: 1rem 1rem;
@@ -43,10 +38,8 @@
 
 .gifContainer {
 	@include flex(null, null, column);
-	width: 100%;
-	height: auto;
+	@include width-height-position(100%, auto, relative);
 	padding: 0.2%;
-	position: relative;
 	background: $color-whiteGrey;
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
@@ -60,7 +53,6 @@
 		padding: 0 0.5rem;
 		font-size: 1.4rem;
 		margin-bottom: 0.5%;
-		color: $color-secondary;
-		background-image: $color-bg-gradientSailorDay;
+		@include background-border-color($color-bg-gradientSailorDay, null, $color-secondary);
 	}
 }

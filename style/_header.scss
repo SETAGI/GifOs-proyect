@@ -1,90 +1,77 @@
 .header {
 	&__welcomeVisitors {
-		@include flex(null, center, null);
 		height: 2.3rem;
 		font-size: 1.2rem;
 		padding: 0 1rem;
-		color: $color-secondary;
-		background-image: $color-bg-gradientSailorDay;
 		box-shadow: 0 1px 0 0 $color-primary;
+		@include flex(null, center, null);
+		@include background-border-color($color-bg-gradientSailorDay, null, $color-secondary);
 	}
 
 	&__logo {
-		position: absolute;
 		top: 6.2rem;
 		left: 10rem;
+		position: absolute;
 	}
 }
 
 .nav {
-	@include flex(flex-end, center, null);
 	margin: 4.4rem 10rem;
+	@include flex(flex-end, center, null);
 
 	&__btn--dropdown {
-		@include flex(space-between, center, null);
 		width: 16.7rem;
+		@include flex(space-between, center, null);
 
 		.text {
-			@include flex(center, center, null);
-			width: 13.1rem;
-			height: 3.2rem;
-			position: relative;
 			color: $color-primary;
 			@include button-decoration-sDay;
+			@include flex(center, center, null);
+			@include width-height-position(13.1rem, 3.2rem, relative);
 			border-right: none;
 		}
 
 		.arrow {
-			@include flex(center, center, null);
-			width: 3.6rem;
-			height: 3.2rem;
 			@include button-decoration-sDay;
+			@include flex(center, center, null);
+			@include width-height-position(3.6rem, 3.2rem, null);
 		}
 	}
 
 	&__list {
-		display: none;
 		z-index: 1;
-		width: 16.7rem;
-		height: 10.2rem;
-		position: absolute;
+		display: none;
 		background: $color-whiteGrey;
+		@include width-height-position(16.7rem, 10.2rem, absolute);
 		box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 		.button-inside {
-			@include flex(center, center, null);
-			width: 15rem;
-			height: 3rem;
 			margin: 0.6rem 0;
-			color: $color-primary;
 			text-decoration: none;
-			background: $color-pale-whiteGrey;
-			border: 1px solid $color-medium-gray;
+			@include flex(center, center, null);
+			@include width-height-position(15rem, 3rem, null);
 			box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+			@include background-border-color($color-pale-whiteGrey, 1px solid $color-medium-gray, $color-primary);
 
 			&:hover {
-				background: $color-lighter-whitePurple;
-				border: 1px solid $color-pale-whitePurple;
+				@include background-border-color($color-lighter-whitePurple, 1px solid $color-pale-whitePurple, null);
 			}
 		}
 	}
 
 	&__btn--normal {
-		@include flex(center, center, null);
-		width: 8rem;
-		height: 3.2rem;
 		margin-left: 2rem;
 		text-decoration: none;
-		color: $color-primary;
-		border: 1px solid transparent;
+		@include flex(center, center, null);
+		@include width-height-position(8rem, 3.2rem, null);
+		@include background-border-color(null, 1px solid transparent, $color-primary);
 
 		&:hover {
 			border: 1px dotted $color-primary;
 		}
 
 		&:active {
-			color: $color-light-gray;
-			border: 1px solid transparent;
+			@include background-border-color(null, 1px solid transparent, $color-light-gray);
 		}
 	}
 }
@@ -97,10 +84,8 @@
 
 			&::after {
 				content: '';
-				width: 95%;
-				height: 80%;
-				position: absolute;
 				border: 1px dotted $color-primary;
+				@include width-height-position(95%, 80%, absolute);
 			}
 		}
 
@@ -112,10 +97,8 @@
 			&::after {
 				content: '';
 				right: 5%;
-				width: 83%;
-				height: 80%;
-				position: absolute;
 				border: 1px dotted $color-primary;
+				@include width-height-position(83%, 80%, absolute);
 			}
 		}
 	}
@@ -128,20 +111,18 @@
 /* END */
 
 .searcher {
-	height: 9.9rem;
 	padding: 0.2rem;
 	margin: 0 10rem;
-	position: relative;
 	background: $color-whiteGrey;
+	@include width-height-position(null, 9.9rem, relative);
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	&__name {
-		@include flex(null, center, null);
 		height: 2.4rem;
-		padding-left: 1rem;
-		color: $color-secondary;
 		font-weight: bold;
-		background-image: $color-bg-gradientSailorDay;
+		padding-left: 1rem;
+		@include flex(null, center, null);
+		@include background-border-color($color-bg-gradientSailorDay, null, $color-secondary);
 	}
 
 	&__flexBox {
@@ -149,50 +130,43 @@
 	}
 
 	&__input {
-		width: 90%;
 		outline: none;
-		height: 4.8rem;
 		font-size: 1.6rem;
 		margin: 1.2rem 1.2rem;
 		border: 1px solid $color-mediumLow-gray;
+		@include width-height-position(90%, 4.8rem, null);
 		box-shadow: inset -2px -2px 0 0 $color-whiteGrey, inset 1px 1px 0 0 $color-primary;
 	}
 }
 
 .help__list {
-	display: none;
-	position: absolute;
-	z-index: 3;
-	width: 100%;
-	padding: 1.6rem 0;
-	top: 10.2rem;
 	left: 0;
+	z-index: 3;
+	top: 10.2rem;
+	display: none;
+	padding: 1.6rem 0;
 	background: $color-whiteGrey;
+	@include width-height-position(100%, null, absolute);
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
 	.buttonHelp {
-		@include flex(null, center, null);
-		position: relative;
-		text-decoration: none;
-		width: 86.5%;
 		padding-left: 1rem;
-		height: 3.6rem;
 		margin-left: 1.6rem;
-		background: $color-pale-whiteGrey;
-		border: 1px solid $color-medium-gray;
+		text-decoration: none;
+		@include flex(null, center, null);
+		@include width-height-position(86.5%, 3.6rem, relative);
 		box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+		@include background-border-color($color-pale-whiteGrey, 1px solid $color-medium-gray, null);
 
 		&:hover {
 			background: $color-whiteGrey;
 			&::after {
 				content: '';
-				width: 99.6%;
-				height: 90%;
-				border: 1px dotted $color-primary;
-				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				border: 1px dotted $color-primary;
+				@include width-height-position(99.6%, 90%, absolute);
 			}
 		}
 
@@ -205,4 +179,35 @@
 /* appears when the user press the dropdown help menu */
 .show_helpMenu {
 	@include flex(null, null, column);
+}
+
+.searchHistory {
+	overflow: hidden;
+	display: flex;
+	margin: 1rem 10rem;
+}
+
+.buttonHistory {
+	font-size: 1.4rem;
+	padding: 0.8rem 1rem;
+	text-decoration: none;
+	@include flex(center, center, null);
+
+	@include width-height-position(auto, null, relative);
+	box-shadow: inset -2px -2px 0 0 $color-soft-blue, inset 2px 2px 0 0 $color-secondary;
+	@include background-border-color($color-lighter-blue, 1px solid $color-medium-purple, $color-secondary);
+
+	&:not(:last-child) {
+		margin-right: 0.4rem;
+	}
+
+	&:hover {
+		background: $color-light-blue;
+
+		&::after {
+			content: '';
+			border: 1px dotted $color-primary;
+			@include width-height-position(93%, 87%, absolute);
+		}
+	}
 }

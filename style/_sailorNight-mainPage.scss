@@ -2,13 +2,12 @@
 	background-color: $color-primary;
 }
 .change_color_gradient {
-	background-image: $color-bg-gradientSailorNight;
 	box-shadow: 0 1px 0 0 $color-primary;
+	background-image: $color-bg-gradientSailorNight;
 }
 
 .button_sailorNight {
-	background: $color-light-purple;
-	color: $color-secondary;
+	@include background-border-color($color-light-purple, null, $color-secondary);
 
 	&:hover {
 		@include bg-buttons-sNight;
@@ -18,9 +17,8 @@
 .dualBtn_sailorNight {
 	&:hover {
 		.textButton_sailorNight {
-			color: $color-secondary;
-			border: 1px solid $color-primary;
 			@include bg-buttons-sNight;
+			@include background-border-color(null, 1px solid $color-primary, $color-secondary);
 		}
 
 		.arrowButton_sailorNight {
@@ -30,8 +28,7 @@
 	}
 
 	.textButton_sailorNight {
-		background: $color-light-purple;
-		color: $color-secondary;
+		@include background-border-color($color-light-purple, null, $color-secondary);
 	}
 
 	.arrowButton_sailorNight {
@@ -44,15 +41,12 @@
 	box-shadow: inset -2px -2px 0 0 $color-medium-gray, inset 2px 2px 0 0 $color-secondary;
 
 	.button-sailorNight {
-		background: $color-Lighter-gray;
-		border: 1px solid $color-medium-gray;
 		box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+		@include background-border-color($color-Lighter-gray, 1px solid $color-medium-gray, null);
 
 		&:hover {
-			background: $color-blue;
-			border: 1px solid rgba(51, 53, 143, 0.2);
+			@include background-border-color($color-blue, 1px solid rgba(51, 53, 143, 0.2), $color-secondary);
 			box-shadow: inset -1px -1px 0 0 $color-Lighter-gray, inset 1px 1px 0 0 $color-secondary;
-			color: $color-secondary;
 		}
 	}
 }
@@ -65,8 +59,7 @@
 	}
 
 	&:active {
-		color: $color-light-gray;
-		border: 1px solid transparent;
+		@include background-border-color(null, 1px solid transparent, $color-light-gray);
 	}
 }
 
@@ -92,9 +85,8 @@
 		box-shadow: inset -2px -2px 0 0 $color-medium-gray, inset 2px 2px 0 0 $color-secondary;
 
 		.buttonHelp-sNight {
-			background: $color-Lighter-gray;
-			border: 1px solid $color-medium-gray;
 			box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
+			@include background-border-color($color-Lighter-gray, 1px solid $color-medium-gray, null);
 		}
 	}
 }
@@ -104,15 +96,13 @@
 }
 
 .searchBtn-sNight-pushed {
-	color: $color-secondary;
 	position: relative;
-	border: 1px solid $color-primary;
-	background: $color-light-purple;
 	box-shadow: inset -1px -1px 0 0 $color-purple, inset 1px 1px 0 0 $color-secondary;
+	@include background-border-color($color-light-purple, 1px solid $color-primary, $color-secondary);
 
 	&:active {
-		border: 1px solid $color-primary;
 		@include bg-buttons-sNight;
+		border: 1px solid $color-primary;
 
 		&::after {
 			@include dotted-lines-button;
@@ -122,8 +112,7 @@
 .hashtag-color-gradient {
 	.gifContainer-sailorNight {
 		.button-seeMore-sNight {
-			background: $color-blue;
-			border: 1px solid $color-medium-purple;
+			@include background-border-color($color-blue, 1px solid $color-medium-purple, null);
 			box-shadow: inset -2px -2px 0 0 $color-medium-blue, inset 2px 2px 0 0 $color-secondary;
 
 			&:hover {
@@ -148,7 +137,7 @@
 .sNightTrending-color-gradient {
 	.sNight-style-gradient {
 		.hash-trend-search {
-			background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+			background-image: $color-bg-gradientSailorNight;
 		}
 	}
 }

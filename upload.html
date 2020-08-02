@@ -10,14 +10,46 @@
 		<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 	</head>
 	<body>
-		<div class="header__welcomeVisitors">
-			<p>
-				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
-			</p>
+		<div id="welcomeBar" class="header__welcomeVisitors">
+			¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
 		</div>
+		<a href="./index.html"> <img src="./assets/arrow.svg" alt="arrow" class="arrowReturn" /></a>
 		<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
-		<section class="alert">
-			<div class="alert__nameWindow">Crear Gifs</div>
+		<nav class="nav">
+			<a href="./upload.html" class="button" id="button_deleteGifs">Borrar mis Gifs</a>
+			<a href="./upload.html" class="button" id="button_createGifs">Crear Gifs</a>
+			<div class="nav__dropdown">
+				<div class="nav__btn--dropdown dotted" id="dualButton">
+					<div class="text dotted__text textButton_sailorNight" id="button_text_chooseTheme">
+						Elegir tema
+					</div>
+					<a
+						href="#"
+						class="arrow dropbtn dotted__arrow arrowButton_sailorNight"
+						id="button_dropdownArrow"
+						onclick="dropdownFunction()"
+					>
+						<img src="./assets/dropdown.svg" alt="Drop down image arrow" />
+					</a>
+				</div>
+				<div id="myDropdown" class="nav__list">
+					<a href="#" class="button-inside sailorDay button-sailorNight"
+						><span style="text-decoration-line: underline;">S</span>ailor Day</a
+					>
+					<a href="#" class="button-inside sailorNight button-sailorNight">Sailor Night</a>
+				</div>
+			</div>
+			<a href="#myGifsId" class="nav__btn--normal" id="change_color"
+				><span style="text-decoration-line: underline;">M</span>is Gifos</a
+			>
+		</nav>
+		<section class="alert" id="alertId">
+			<div class="alert__nameWindow">
+				Crear Gifs
+				<a href="#" id="exitButtonId">
+					<img src="./assets/close.svg" alt="Exit Button" />
+				</a>
+			</div>
 			<div class="dialogueWindow">
 				<div class="dialogueWindow__image">
 					<img src="./assets/window img.png" alt="window image" />
@@ -41,47 +73,95 @@
 			</div>
 
 			<div class="buttons-uploadPage">
-				<a href="./index.html" class="button button--cancel">Cancelar</a>
+				<a href="#" class="button button--cancel" id="cancelButtonId">Cancelar</a>
 				<a href="#" class="button button--comenzar" onclick="activateCamera()">Comenzar</a>
 			</div>
 		</section>
 
 		<section class="gifCreation" id="gifcreationId">
-			<div class="alert__nameWindow" id="windowName">Un Chequeo Antes de Empezar</div>
+			<div class="alert__nameWindow">
+				<h3 id="windowName"></h3>
+				<a href="#" class="buttonExit" id="exitButton">
+					<img src="./assets/close.svg" alt="Exit Button" />
+				</a>
+			</div>
+
 			<div class="gifCreation__video" id="recordVideo">
 				<video id="video" autoplay="" playsinline=""></video>
 			</div>
-			<div class="gifCreation__video gifCreated" id="showGif">
+
+			<!-- PONER ESTO EN UN VIDEO Y PONERLE EL PLAY EN LA FLECHITA DE PLAY -->
+			<div class="gifCreation__video" id="showGif">
 				<img src="" alt="" class="gif" />
 			</div>
 
-			<div class="buttons-container">
-				<div class="buttonStyle btnStart" id="btn-capturar">
-					<div class="buttonStyle__img buttonStyle__img--sDay btnStart__camera">
-						<img src="./assets/camera.svg" alt="Drop down image camera" />
-					</div>
-					<a href="#windowName" class="buttonStyle__text buttonStyle__text--sDay btnStart__capture" id="start">
-						Capturar
-					</a>
-				</div>
-
-				<div class="buttonStyle btnStop" id="btn-listo">
-					<div class="buttonStyle__img buttonStyle__img--red btnStop__record">
-						<img src="./assets/recording.svg" alt="Drop down image camera" />
-					</div>
-					<a href="#windowName" class="buttonStyle__text buttonStyle__text--red btnStop__capture" id="stop">
-						Listo
-					</a>
-				</div>
-
-				<a href="#windowName" class="button" id="btn-repeat">Rpetir Captura</a>
-				<a href="#windowName" class="button" id="btn-upload">Subir Gif</a>
+			<div class="gifCreation__video uploadingGif" id="uploadGifId">
+				<img src="./assets/globe_img.png" alt="" />
+				<p>Estamos subiendo tu Gif...</p>
+				<progress class="progressBar"></progress>
 			</div>
+
+			<!-- Uploaded gif -->
+			<div class="gifCreation__uploaded" id="showGif-2">
+				<div class="uploaded-box">
+					<div class="gifUploadedBox">
+						<img src="" alt="hola" class="gif-2" />
+					</div>
+					<div class="buttons-uploaded">
+						<h3 class="successGif">Gif creado con exito</h3>
+						<a href="#" class="button-copy-download" id="buttonCopyId">Copiar Enlace Gif</a>
+						<a href="#" class="button-copy-download" id="buttonDownloadId">Descargar Gif</a>
+					</div>
+				</div>
+				<div class="buttonListo">
+					<a href="./upload.html" class="button" id="buttonListoId">Listo</a>
+				</div>
+			</div>
+
+			<div class="buttons-container" id="buttons-containerId">
+				<div class="crono&bar">
+					<div class="timer" id="timerId">
+						<h2 id="crono">00:00:00</h2>
+					</div>
+				</div>
+
+				<div class="buttonsUploadComplete">
+					<div class="buttonStyle btnStart" id="btn-capturar">
+						<div class="buttonStyle__img buttonStyle__img--sDay btnStart__camera">
+							<img src="./assets/camera.svg" alt="Drop down image camera" />
+						</div>
+						<a href="#windowName" class="buttonStyle__text buttonStyle__text--sDay btnStart__capture" id="start">
+							Capturar
+						</a>
+					</div>
+
+					<div class="buttonStyle btnStop" id="btn-listo">
+						<div class="buttonStyle__img buttonStyle__img--red btnStop__record">
+							<img src="./assets/recording.svg" alt="Drop down image camera" />
+						</div>
+						<a href="#windowName" class="buttonStyle__text buttonStyle__text--red btnStop__capture" id="stop">
+							Listo
+						</a>
+					</div>
+
+					<a href="#windowName" class="button" id="btn-repeat">Rpetir Captura</a>
+					<a href="#windowName" class="button" id="btn-upload">Subir Gif</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="myGifs" id="myGifsId">
+			<div class="subtitle">
+				<h3>Mis gifs</h3>
+			</div>
+			<div class="myGifs__gifs" id="myGifContainerId"></div>
 		</section>
 
 		<!-- web streams API polyfill to support Firefox -->
 		<script src="https://unpkg.com/@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js"></script>
 		<!-- Main scripts -->
+
+		<script src="./scripts/functionsUpdateBox.js"></script>
 		<script src="./scripts/functionsCreateGifs.js"></script>
 		<script src="./scripts/createGifos.js"></script>
 	</body>

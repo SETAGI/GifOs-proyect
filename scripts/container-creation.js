@@ -12,9 +12,10 @@ async function suggestionBoxesCreation(gifdata, i) {
 	h3.className = 'hashtag';
 	titleArray = await gifdata.data[i].title.split(' ');
 	let title;
-	indexId = await titleArray.indexOf('by');
-	indexIdGIfWord = await titleArray.indexOf('GIF');
-	if (indexId !== -1) {
+	let indexId = await titleArray.indexOf('by');
+	let indexIdGIfWord = await titleArray.indexOf('GIF');
+
+	if (indexId !== -1 && titleArray[indexId + 2] !== undefined) {
 		title = titleArray.splice(indexId + 1, 3);
 		h3.textContent = `#${title.join(' ')}`;
 	} else if (indexIdGIfWord !== -1) {
@@ -41,7 +42,8 @@ async function suggestionBoxesCreation(gifdata, i) {
 
 	seeMoreBtn = document.createElement('a');
 	seeMoreBtn.href = '#positionSearch';
-	seeMoreBtn.onclick = () => seeMore(title.join(' '));
+	seeMoreBtn.onclick = () => seeMore(title.join(' ')); //eventListeners.js
+
 	seeMoreBtn.className = 'button-seeMore button-seeMore-sNight';
 	seeMoreBtn.textContent = 'Ver más...';
 	div1.appendChild(seeMoreBtn);
@@ -49,8 +51,16 @@ async function suggestionBoxesCreation(gifdata, i) {
 	closeBtn = document.createElement('img');
 	closeBtn.src = './assets/close.svg';
 	closeBtn.alt = 'close button';
+
+	if (i + 4 >= 100) {
+		alert('¡The next card will be the last suggestion!');
+		i = Math.floor(Math.random() * (100 - 1)) + 1;
+	}
 	/* this value is added to change the gif for another one 4 positions after the last one */
-	closeBtn.onclick = () => changeSuggestion(i, i + 4, gifdata);
+	closeBtn.onclick = async () => {
+		document.getElementById(`id-${i}`).remove();
+		await suggestionBoxesCreation(gifdata, i + 4);
+	};
 	a_closeBtn.appendChild(closeBtn);
 }
 
@@ -87,4 +97,58 @@ async function trendingBoxesCreation(random, gifdata, i) {
 		h3.textContent = hashstags.join('');
 	}
 	div1.appendChild(h3);
+}
+
+async function helpButtonsCreation(e) {
+	let a_element,
+		keyword = await e.target.value;
+
+	suggestionwordsInput.innerHTML = '';
+
+	if (e.target.value) {
+		document.getElementById('help_dropdown').className = 'help__list help_dropd-sNight show_helpMenu';
+
+		for (let i = 0; i < 3; i++) {
+			a_element = document.createElement('a');
+			a_element.href = '#positionSearch';
+			a_element.className = 'buttonHelp  buttonHelp-sNight';
+			a_element.id = `elementId-${i}`;
+			a_element.onclick = async () => {
+				document.getElementById('btn').disabled = true;
+
+				if (document.getElementById('btn').classList.contains('searchBtn-sNight')) {
+					document.getElementById('btn').className = 'searchBtn-sNight searcherbutton';
+					document.querySelector('#btn img').src = './assets/Combined_Shape.svg';
+				}
+
+				if (!document.getElementById('btn').classList.contains('searchBtn-sNight')) {
+					document.getElementById('btn').className = 'searcherbutton';
+					document.querySelector('#btn img').src = '/assets/lupa_inactive.svg';
+				}
+
+				await getGifData(response.data[i].name, URL).then((response) => randomNumbers(response));
+				document.getElementById('searchName').textContent = await response.data[i].name;
+				searchButtonsCreation(await response.data[i].name);
+				document.getElementById('searcher').value = '';
+			};
+			suggestionwordsInput.appendChild(a_element);
+
+			response = await getGifData(keyword + '?', URL_suggestions);
+			document.getElementById(`elementId-${i}`).textContent = await response.data[i].name;
+		}
+	}
+}
+
+async function searchButtonsCreation(searchedWord) {
+	a_searchHistory = document.createElement('a');
+	a_searchHistory.href = '#positionSearch';
+	a_searchHistory.className = 'buttonHistory';
+	a_searchHistory.textContent = searchedWord;
+	a_searchHistory.id = `a_searchHistoryId-${i_searchHistory}`;
+	a_searchHistory.onclick = async () => {
+		seeMore(searchedWord);
+	};
+	searchHistoryContainer.appendChild(a_searchHistory);
+
+	i_searchHistory++;
 }

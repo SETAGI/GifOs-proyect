@@ -1,30 +1,26 @@
 /*-------------------------- API REQUEST ---------------------------------*/
 
-const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM',
-	URL = 'http://api.giphy.com/v1/gifs/search?q=',
-	URL2 = 'http://api.giphy.com/v1/gifs/trending?';
+/* Vars and const are in const&varModule.js */
 
-let suggestGifContainer = document.getElementById('suggestions-gifsID'),
-	trendGifContainer = document.getElementById('trendsGifsId');
-let div1, div2, content_suggestions, h3, a_closeBtn, closeBtn, a_gif, gif_element, seeMoreBtn;
-let randomArray = new Array();
-
-const showGifSuggestions = async (gifdata) => {
+const showGifSuggestions = async (gifData) => {
 	try {
 		suggestGifContainer.innerHTML = '';
+		// do it in grid mode
 		for (let i = 0; i < 4; i++) {
-			await suggestionBoxesCreation(gifdata, i);
+			// container-creation.js
+			await suggestionBoxesCreation(gifData, i);
 		}
 	} catch (error) {
 		console.error('something was wrong', error);
 	}
 };
 
-const showGifsTrendingAndSearch = async (random, gifdata) => {
+const showGifsTrendingAndSearch = async (random, gifData) => {
 	try {
 		trendGifContainer.innerHTML = '';
 		for (let i = 0; i < 20; i++) {
-			await trendingBoxesCreation(random, gifdata, i);
+			// container-creation.js
+			await trendingBoxesCreation(random, gifData, i);
 		}
 	} catch (error) {
 		console.error('something was wrong', error);
@@ -34,8 +30,8 @@ const showGifsTrendingAndSearch = async (random, gifdata) => {
 const randomNumbers = async (gifArray) => {
 	try {
 		gifArray.data.forEach((value, index) => (randomArray[index] = index));
-		randomArray1 = randomArray.sort(() => Math.random() - 0.6);
-		await showGifsTrendingAndSearch(randomArray1.reverse(), gifArray);
+		randomArray = randomArray.sort(() => Math.random() - 0.5);
+		await showGifsTrendingAndSearch(randomArray.reverse(), gifArray);
 	} catch (error) {
 		console.error('something was wrong', error);
 	}
@@ -52,5 +48,14 @@ const getGifData = async (keyword, URL) => {
 	}
 };
 
-getGifData('', URL2).then((response) => randomNumbers(response));
-getGifData('', URL2).then((response) => showGifSuggestions(response));
+const callApi = async () => {
+	try {
+		let data = await getGifData('', URL2);
+		await randomNumbers(data);
+		await showGifSuggestions(data);
+	} catch (error) {
+		console.error('something was wrong', error);
+	}
+};
+
+callApi();

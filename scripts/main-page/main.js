@@ -1,5 +1,13 @@
 /*-------------------------- API REQUEST ---------------------------------*/
 
+if (localStorage.getItem('themes') == 'sNight') {
+	sailorNightMode();
+}
+
+if (localStorage.getItem('themes') == 'sDay') {
+	sailorDayMode();
+}
+
 /* Vars and const are in const&varModule.js */
 
 const showGifSuggestions = async (gifData) => {
@@ -18,7 +26,7 @@ const showGifSuggestions = async (gifData) => {
 const showGifsTrendingAndSearch = async (random, gifData) => {
 	try {
 		trendGifContainer.innerHTML = '';
-		for (let i = 0; i < 20; i++) {
+		for (let i = 0; i < 100; i++) {
 			// container-creation.js
 			await trendingBoxesCreation(random, gifData, i);
 		}

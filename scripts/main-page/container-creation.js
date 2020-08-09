@@ -25,19 +25,19 @@ async function suggestionBoxesCreation(gifdata, i) {
 	div2.appendChild(h3);
 
 	a_closeBtn = document.createElement('a');
-	a_closeBtn.href = '#';
+	a_closeBtn.href = '#suggestionsId';
 	a_closeBtn.className = 'exitButton';
 	div2.appendChild(a_closeBtn);
 
 	a_gif = document.createElement('a');
 	a_gif.target = 'blanck';
-	a_gif.href = await gifdata.data[i].images.fixed_height_downsampled.webp;
-	a_gif.className = 'content';
+	a_gif.href = await gifdata.data[i].images.original.url;
+	a_gif.className = 'contentSnight content';
 	div1.appendChild(a_gif);
 
 	gif_element = document.createElement('img');
 	gif_element.className = 'gif';
-	gif_element.src = await gifdata.data[i].images.fixed_height_downsampled.webp;
+	gif_element.src = await gifdata.data[i].images.original.url;
 	a_gif.appendChild(gif_element);
 
 	seeMoreBtn = document.createElement('a');
@@ -66,18 +66,23 @@ async function suggestionBoxesCreation(gifdata, i) {
 
 async function trendingBoxesCreation(random, gifdata, i) {
 	div1 = document.createElement('div');
-	div1.className = 'hover-trend-search sNight-style-gradient';
+
+	gifdata.data[random[i]].images['480w_still'].width / gifdata.data[random[i]].images['480w_still'].height >= 1.4
+		? (div1.className = 'hover-trend-search sNight-style-gradient column-double')
+		: (div1.className = 'hover-trend-search sNight-style-gradient');
+
 	trendGifContainer.appendChild(div1);
 
 	a_gif = document.createElement('a');
 	a_gif.target = 'blanck';
-	a_gif.href = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
-	a_gif.className = 'content';
+	a_gif.href = await gifdata.data[random[i]].images.original.url;
+	a_gif.className = 'contentSnight content ';
 	div1.appendChild(a_gif);
 
 	gif_element = document.createElement('img');
-	gif_element.src = await gifdata.data[random[i]].images.fixed_height_downsampled.webp;
 	gif_element.className = 'gif';
+	gif_element.loading = 'lazy';
+	gif_element.src = await gifdata.data[random[i]].images.original.url;
 	a_gif.appendChild(gif_element);
 
 	h3 = document.createElement('h3');
@@ -87,14 +92,14 @@ async function trendingBoxesCreation(random, gifdata, i) {
 	indexId = await tags.indexOf(gifdata.data[random[i]].id);
 
 	let hashstags;
+
 	if (indexId !== -1) {
-		tags.splice(indexId, 1, 'without#tag');
+		tags.splice(indexId, 1, `without #tag`);
 		hashstags = tags.map((tag) => '#' + tag);
-		if (tags.length == 1) h3.textContent = '#without#tag';
-		else h3.textContent = hashstags.join('');
+		tags.length == 1 ? (h3.textContent = ` #without #tag`) : (h3.textContent = `. ${hashstags.join(' ')}`);
 	} else {
 		hashstags = tags.map((tag) => '#' + tag);
-		h3.textContent = hashstags.join('');
+		h3.textContent = `. ${hashstags.join(' ')}`;
 	}
 	div1.appendChild(h3);
 }
@@ -145,6 +150,7 @@ async function searchButtonsCreation(searchedWord) {
 	a_searchHistory.className = 'buttonHistory';
 	a_searchHistory.textContent = searchedWord;
 	a_searchHistory.id = `a_searchHistoryId-${i_searchHistory}`;
+
 	a_searchHistory.onclick = async () => {
 		seeMore(searchedWord);
 	};

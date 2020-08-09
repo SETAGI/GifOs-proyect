@@ -2,7 +2,6 @@
 	background-color: $color-primary;
 }
 .change_color_gradient {
-	box-shadow: 0 1px 0 0 $color-primary;
 	background-image: $color-bg-gradientSailorNight;
 }
 
@@ -109,14 +108,34 @@
 		}
 	}
 }
-.hashtag-color-gradient {
-	.gifContainer-sailorNight {
-		.button-seeMore-sNight {
-			@include background-border-color($color-blue, 1px solid $color-medium-purple, null);
-			box-shadow: inset -2px -2px 0 0 $color-medium-blue, inset 2px 2px 0 0 $color-secondary;
 
-			&:hover {
-				background: $color-medium-blue;
+.suggestions-sNight {
+	.hashtag-color-gradient {
+		.gifContainer-sailorNight {
+			.button-seeMore-sNight {
+				@include background-border-color($color-blue, 1px solid $color-medium-purple, null);
+				box-shadow: inset -2px -2px 0 0 $color-medium-blue, inset 2px 2px 0 0 $color-secondary;
+
+				&:hover {
+					background: $color-medium-blue;
+				}
+			}
+			.contentSnight {
+				background: $color-bg-gradientSailorNight;
+				background-size: 400% 400%;
+				animation: loading-animation 2s ease-in-out infinite;
+				color: transparent;
+			}
+			@keyframes loading-animation {
+				0% {
+					background-position: 0% 80%;
+				}
+				50% {
+					background-position: 90% 20%;
+				}
+				100% {
+					background-position: 0% 80%;
+				}
 			}
 		}
 	}
@@ -134,10 +153,54 @@
 	}
 }
 
-.sNightTrending-color-gradient {
-	.sNight-style-gradient {
-		.hash-trend-search {
-			background-image: $color-bg-gradientSailorNight;
+.trends-sNight {
+	.sNightTrending-color-gradient {
+		.sNight-style-gradient {
+			.contentSnight {
+				background: $color-bg-gradientSailorNight;
+				background-size: 400% 400%;
+				animation: loading-animation 2s ease-in-out infinite;
+				color: transparent;
+			}
+			@keyframes loading-animation {
+				0% {
+					background-position: 0% 80%;
+				}
+				50% {
+					background-position: 90% 20%;
+				}
+				100% {
+					background-position: 0% 80%;
+				}
+			}
+			.hash-trend-search {
+				background-image: $color-bg-gradientSailorNight;
+			}
+		}
+	}
+}
+/* ------------------------ My Gifs Sailor Night ----------------------- */
+
+.myGifs-sNight {
+	.gifs-sNight {
+		.sNight-style-gradient {
+			.constentSnight {
+				background: $color-bg-gradientSailorNight;
+				background-size: 400% 400%;
+				animation: loading-animation 2s ease-in-out infinite;
+				color: transparent;
+			}
+			@keyframes loading-animation {
+				0% {
+					background-position: 0% 80%;
+				}
+				50% {
+					background-position: 90% 20%;
+				}
+				100% {
+					background-position: 0% 80%;
+				}
+			}
 		}
 	}
 }

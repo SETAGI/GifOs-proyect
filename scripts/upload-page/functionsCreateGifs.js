@@ -17,6 +17,22 @@ async function showCamera() {
 	return stream;
 }
 
+// async function showCamera() {
+// 	let response = navigator.mediaDevices.getUserMedia({
+// 		video: {
+// 			// width: { ideal: 832 },
+// 			height: {
+// 				max: 480,
+// 			},
+// 		},
+// 		audio: false,
+// 	});
+
+// 	let stream = await response;
+
+// 	return stream;
+// }
+
 async function getPOST() {
 	let response = await fetch(`${URL_UPLOAD}?api_key=${APIKey}`, {
 		method: 'POST',
@@ -27,11 +43,9 @@ async function getPOST() {
 	return data;
 }
 
-// Do this in the main function to get information getGifData()
 async function getGif(id) {
 	let response = await fetch(`http://api.giphy.com/v1/gifs/${id}?api_key=${APIKey}`);
-	let data = await response.json();
-	let gifURL = await data.data.images.original.url;
+	let giData = await response.json();
 
-	return gifURL;
+	return giData;
 }

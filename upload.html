@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="./style/main.css" />
 		<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 	</head>
-	<body>
+	<body id="bodyId">
 		<div id="welcomeBar" class="header__welcomeVisitors">
 			¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
 		</div>
@@ -17,7 +17,7 @@
 		<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
 		<nav class="nav">
 			<a href="./upload.html" class="button" id="button_deleteGifs">Borrar mis Gifs</a>
-			<a href="./upload.html" class="button" id="button_createGifs">Crear Gifs</a>
+			<a href="#" class="button" id="button_createGifs">Crear Gifs</a>
 			<div class="nav__dropdown">
 				<div class="nav__btn--dropdown dotted" id="dualButton">
 					<div class="text dotted__text textButton_sailorNight" id="button_text_chooseTheme">
@@ -44,9 +44,9 @@
 			>
 		</nav>
 		<section class="alert" id="alertId">
-			<div class="alert__nameWindow">
+			<div class="alert__nameWindow" id="nameWIndowId">
 				Crear Gifs
-				<a href="#" id="exitButtonId">
+				<a href="#myGifsId" id="exitButtonId" class="exitButton">
 					<img src="./assets/close.svg" alt="Exit Button" />
 				</a>
 			</div>
@@ -58,7 +58,7 @@
 					<h3 class="dialogueWindow__boldParagraph">
 						Aqui podras crear tus propios Gifs
 					</h3>
-					<div>
+					<div class="textAlert">
 						<p>
 							Crear tu <strong>gif</strong> es muy fácil, graba cualquier imagen con tu cámara y obtén gifs personalizados. Los
 							pasos para crear tu gif son:
@@ -73,15 +73,15 @@
 			</div>
 
 			<div class="buttons-uploadPage">
-				<a href="#" class="button button--cancel" id="cancelButtonId">Cancelar</a>
-				<a href="#" class="button button--comenzar" onclick="activateCamera()">Comenzar</a>
+				<a href="#myGifsId" class="button button--cancel" id="cancelButtonId">Cancelar</a>
+				<a href="#gifcreationId" class="button button--comenzar" onclick="activateCamera()" id="startButtonId">Comenzar</a>
 			</div>
 		</section>
 
 		<section class="gifCreation" id="gifcreationId">
-			<div class="alert__nameWindow">
+			<div class="alert__nameWindow" id="namewindowGifCreation">
 				<h3 id="windowName"></h3>
-				<a href="#" class="buttonExit" id="exitButton">
+				<a href="#myGifsId" class="buttonExit" id="exitButton">
 					<img src="./assets/close.svg" alt="Exit Button" />
 				</a>
 			</div>
@@ -97,7 +97,7 @@
 
 			<div class="gifCreation__video uploadingGif" id="uploadGifId">
 				<img src="./assets/globe_img.png" alt="" />
-				<p>Estamos subiendo tu Gif...</p>
+				<p><strong>Estamos subiendo tu Gif...</strong></p>
 				<progress class="progressBar"></progress>
 			</div>
 
@@ -108,13 +108,13 @@
 						<img src="" alt="hola" class="gif-2" />
 					</div>
 					<div class="buttons-uploaded">
-						<h3 class="successGif">Gif creado con exito</h3>
+						<h3 class="successGif"><strong>Gif creado con éxito</strong></h3>
 						<a href="#" class="button-copy-download" id="buttonCopyId">Copiar Enlace Gif</a>
 						<a href="#" class="button-copy-download" id="buttonDownloadId">Descargar Gif</a>
 					</div>
 				</div>
 				<div class="buttonListo">
-					<a href="./upload.html" class="button" id="buttonListoId">Listo</a>
+					<a href="#myGifsId" class="button" id="buttonListoId">Listo</a>
 				</div>
 			</div>
 
@@ -127,10 +127,10 @@
 
 				<div class="buttonsUploadComplete">
 					<div class="buttonStyle btnStart" id="btn-capturar">
-						<div class="buttonStyle__img buttonStyle__img--sDay btnStart__camera">
+						<div class="buttonStyle__img buttonStyle__img--sDay btnStart__camera" id="captureImg">
 							<img src="./assets/camera.svg" alt="Drop down image camera" />
 						</div>
-						<a href="#windowName" class="buttonStyle__text buttonStyle__text--sDay btnStart__capture" id="start">
+						<a href="#gifcreationId" class="buttonStyle__text buttonStyle__text--sDay btnStart__capture" id="start">
 							Capturar
 						</a>
 					</div>
@@ -139,13 +139,13 @@
 						<div class="buttonStyle__img buttonStyle__img--red btnStop__record">
 							<img src="./assets/recording.svg" alt="Drop down image camera" />
 						</div>
-						<a href="#windowName" class="buttonStyle__text buttonStyle__text--red btnStop__capture" id="stop">
+						<a href="#gifcreationId" class="buttonStyle__text buttonStyle__text--red btnStop__capture" id="stop">
 							Listo
 						</a>
 					</div>
 
-					<a href="#windowName" class="button" id="btn-repeat">Rpetir Captura</a>
-					<a href="#windowName" class="button" id="btn-upload">Subir Gif</a>
+					<a href="#gifcreationId" class="button" id="btn-repeat">Rpetir Captura</a>
+					<a href="#gifcreationId" class="button" id="btn-upload">Subir Gif</a>
 				</div>
 			</div>
 		</section>
@@ -154,15 +154,15 @@
 			<div class="subtitle">
 				<h3>Mis gifs</h3>
 			</div>
-			<div class="myGifs__gifs" id="myGifContainerId"></div>
+			<div class="myGifs__gifs sNightTrending-color-gradient" id="myGifContainerId"></div>
 		</section>
 
 		<!-- web streams API polyfill to support Firefox -->
 		<script src="https://unpkg.com/@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js"></script>
 		<!-- Main scripts -->
 
-		<script src="./scripts/functionsUpdateBox.js"></script>
-		<script src="./scripts/functionsCreateGifs.js"></script>
-		<script src="./scripts/createGifos.js"></script>
+		<script src="./scripts/upload-page/functionsUpdateBox.js"></script>
+		<script src="./scripts/upload-page/functionsCreateGifs.js"></script>
+		<script src="./scripts/upload-page/createGifos.js"></script>
 	</body>
 </html>

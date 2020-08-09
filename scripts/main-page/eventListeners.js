@@ -1,56 +1,64 @@
 /*-------------------- Event listeners for themes ----------------------------*/
-document.querySelector('.sailorDay').addEventListener('click', function (e) {
+const sailorDayMode = () => {
 	// sailorDayTheme();
-	document.getElementById('welcomeBar').className = 'header__welcomeVisitors';
-	document.getElementById('containerId').className = 'container';
-	document.getElementById('search').className = 'searcher';
+	document.getElementById('welcomeBar').classList.remove('change_color_gradient');
+	document.getElementById('containerId').classList.remove('change_color_body');
+	document.getElementById('search').classList.remove('search_container');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo.png';
 	// changing buttons style
-	document.querySelector('#button_createGifs').className = 'button';
-	document.querySelector('#dualButton').className = 'nav__btn--dropdown dotted';
-	document.querySelector('#change_color').className = 'nav__btn--normal';
+	document.getElementById('button_createGifs').classList.remove('button_sailorNight');
+	document.getElementById('dualButton').classList.remove('dualBtn_sailorNight');
+	document.getElementById('change_color').classList.remove('nav__btn--sailorNight');
 	/* changing search button style */
-	document.getElementById('btn').className = ' searcherbutton';
+	document.getElementById('btn').classList.remove('searchBtn-sNight');
 	document.querySelector('#btn img').src = './assets/lupa_inactive.svg';
 	/*changing box of suggestion section subtitle */
-	document.getElementById('suggestionsId').className = 'suggestions';
+	document.getElementById('suggestionsId').classList.remove('suggestions-sNight');
 	/*changing box of trends section subtitle */
-	document.getElementById('trendsId').className = 'trends';
+	document.getElementById('trendsId').classList.remove('trends-sNight');
 	/* changing nav buttons */
-	document.getElementById('myDropdown').className = 'nav__list';
+	document.getElementById('myDropdown').classList.remove('nav__list-sailorNight');
 	/* changing hashtag names gradient */
-	document.getElementById('suggestions-gifsID').className = 'suggestions__gifs';
+	document.getElementById('suggestions-gifsID').classList.remove('hashtag-color-gradient');
 	/* changing hashtag trending names */
-	document.getElementById('trendsGifsId').className = 'trends__gifs';
-});
+	document.getElementById('trendsGifsId').classList.remove('sNightTrending-color-gradient');
 
-document.querySelector('.sailorNight').addEventListener('click', function (e) {
+	localStorage.setItem('themes', 'sDay');
+};
+
+document.querySelector('.sailorDay').addEventListener('click', sailorDayMode);
+
+const sailorNightMode = () => {
 	// sailorNightTheme();
-	document.getElementById('welcomeBar').className = 'header__welcomeVisitors change_color_gradient';
-	document.getElementById('containerId').className = 'container change_color_body';
-	document.getElementById('search').className = 'searcher search_container';
+	document.getElementById('welcomeBar').classList.add('change_color_gradient');
+	document.getElementById('containerId').classList.add('change_color_body');
+	document.getElementById('search').classList.add('search_container');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo_dark.png';
 	// changing buttons style
-	document.querySelector('#button_createGifs').className = 'button button_sailorNight';
-	document.querySelector('#dualButton').className = 'nav__btn--dropdown dotted dualBtn_sailorNight';
-	document.querySelector('#change_color').className = 'nav__btn--normal nav__btn--sailorNight';
+	document.getElementById('button_createGifs').classList.add('button_sailorNight');
+	document.getElementById('dualButton').classList.add('dualBtn_sailorNight');
+	document.getElementById('change_color').classList.add('nav__btn--sailorNight');
 	/* changing search button style */
-	document.getElementById('btn').className = 'searchBtn-sNight searcherbutton';
+	document.getElementById('btn').classList.add('searchBtn-sNight');
 	document.querySelector('#btn img').src = './assets/Combined_Shape.svg';
 	/*changing box of suggestion subtitle section*/
-	document.getElementById('suggestionsId').className = 'suggestions suggestions-sNight';
+	document.getElementById('suggestionsId').classList.add('suggestions-sNight');
 	/*changing box of trends section subtitle */
-	document.getElementById('trendsId').className = 'trends trends-sNight';
+	document.getElementById('trendsId').classList.add('trends-sNight');
 	/* changing nav buttons */
-	document.getElementById('myDropdown').className = 'nav__list nav__list-sailorNight';
+	document.getElementById('myDropdown').classList.add('nav__list-sailorNight');
 	/* changing hashtag names gradient */
-	document.getElementById('suggestions-gifsID').className = 'suggestions__gifs hashtag-color-gradient';
+	document.getElementById('suggestions-gifsID').classList.add('hashtag-color-gradient');
 	/* changing hashtag trending names */
-	document.getElementById('trendsGifsId').className = 'trends__gifs sNightTrending-color-gradient';
-});
+	document.getElementById('trendsGifsId').classList.add('sNightTrending-color-gradient');
+
+	localStorage.setItem('themes', 'sNight');
+};
+
+document.querySelector('.sailorNight').addEventListener('click', sailorNightMode);
 
 /*------------ Event Listener - Search Button --------------*/
-document.getElementById('btn').addEventListener('click', function (e) {
+document.getElementById('btn').addEventListener('click', function () {
 	// buttonEvent();
 	document.getElementById('btn').disabled = true;
 	// changing search button style
@@ -58,6 +66,7 @@ document.getElementById('btn').addEventListener('click', function (e) {
 		document.getElementById('btn').className = 'searchBtn-sNight searcherbutton';
 		document.querySelector('#btn img').src = './assets/Combined_Shape.svg';
 	}
+	/* organizar todos estos classnames */
 	if (!document.getElementById('btn').classList.contains('searchBtn-sNight')) {
 		document.getElementById('btn').className = 'searcherbutton';
 		document.querySelector('#btn img').src = '/assets/lupa_inactive.svg';

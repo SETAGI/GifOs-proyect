@@ -2,24 +2,44 @@
 	margin: 3rem 10rem;
 
 	&__gifs {
-		@include flex(center, center, null);
+		display: grid;
 		margin-top: 1.9rem;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat (1, 25rem);
+		grid-gap: 1rem;
 
 		.content {
-			@include width-height-position(100%, 220px, null);
+			background: $color-bg-gradientSailorDay;
+			background-size: 400% 400%;
+			animation: loading-animation 2s ease-in-out infinite;
+			color: transparent;
+
+			@include width-height-position(100%, 32rem, null);
 			&:hover {
 				&::after {
 					content: '';
-					@include width-height-position(97%, 87%, absolute);
+					@include width-height-position(97%, 91%, absolute);
 					border: 1px dotted $color-primary;
 					top: 50%;
 					left: 50%;
-					transform: translate(-50%, -44.6%);
+					transform: translate(-50%, -46.3%);
 				}
 			}
 
 			.gif {
 				@include width-height-position(100%, 100%, null);
+			}
+		}
+
+		@keyframes loading-animation {
+			0% {
+				background-position: 0% 80%;
+			}
+			50% {
+				background-position: 90% 20%;
+			}
+			100% {
+				background-position: 0% 80%;
 			}
 		}
 	}
@@ -35,16 +55,24 @@
 		font-size: 1.4rem;
 	}
 }
+.exitButton {
+	margin-top: 0.4rem;
+	position: relative;
+	z-index: 4;
+}
 
 .gifContainer {
 	@include flex(null, null, column);
 	@include width-height-position(100%, auto, relative);
-	padding: 0.2%;
-	background: $color-whiteGrey;
-	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 
-	&:not(:last-child) {
-		margin-right: 1rem;
+	&::before {
+		content: '';
+		@include width-height-position(100.6%, 100%, absolute);
+		box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+		box-sizing: border-box;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	&__hashtagName {
@@ -52,7 +80,52 @@
 		height: 2.2rem;
 		padding: 0 0.5rem;
 		font-size: 1.4rem;
-		margin-bottom: 0.5%;
+		margin-bottom: 0.6%;
 		@include background-border-color($color-bg-gradientSailorDay, null, $color-secondary);
+	}
+}
+
+/*----------------------Tablet landscape section----------------------*/
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+	.suggestions {
+		&__gifs {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	.gifContainer {
+		&__hashtagName {
+			height: 2.4rem;
+			font-size: 1.4rem;
+		}
+	}
+}
+
+/*----------------------Tablet portrait section----------------------*/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	.suggestions {
+		&__gifs {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.gifContainer {
+		&__hashtagName {
+			height: 3.2rem;
+			font-size: 1.7rem;
+		}
+	}
+}
+
+/*------------------------Mobile section----------------------*/
+@media screen and (max-width: 599px) {
+	.suggestions {
+		&__gifs {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	.gifContainer {
+		&__hashtagName {
+			height: 3.4rem;
+			font-size: 2rem;
+		}
 	}
 }

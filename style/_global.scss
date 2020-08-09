@@ -73,3 +73,12 @@ p {
 		margin-bottom: 1.5rem;
 	}
 }
+
+/*------------------------Mobile section----------------------*/
+@media screen and (max-width: 599px) {
+	.button {
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+	}
+}

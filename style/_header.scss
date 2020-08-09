@@ -11,6 +11,7 @@
 	&__logo {
 		top: 6.2rem;
 		left: 10rem;
+		// width: 10rem;
 		position: absolute;
 	}
 }
@@ -141,7 +142,7 @@
 
 .help__list {
 	left: 0;
-	z-index: 3;
+	z-index: 10;
 	top: 10.2rem;
 	display: none;
 	padding: 1.6rem 0;
@@ -209,5 +210,39 @@
 			border: 1px dotted $color-primary;
 			@include width-height-position(93%, 87%, absolute);
 		}
+	}
+}
+
+/*----------------------Tablet landscape section----------------------*/
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+	.header {
+		&__logo {
+			top: 5.6rem;
+		}
+	}
+}
+
+/*----------------------Tablet portrait section----------------------*/
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	.header {
+		&__logo {
+			top: 5rem;
+		}
+	}
+}
+
+/*------------------------Mobile section----------------------*/
+@media screen and (max-width: 599px) {
+	.header {
+		&__logo {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, 60%);
+		}
+	}
+
+	.nav {
+		margin-top: 15rem;
 	}
 }

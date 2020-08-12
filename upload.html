@@ -17,7 +17,7 @@
 		<img src="./assets/gifOF_logo.png" alt="" class="header__logo" />
 		<nav class="nav">
 			<a href="./upload.html" class="button" id="button_deleteGifs">Borrar mis Gifs</a>
-			<a href="#" class="button" id="button_createGifs">Crear Gifs</a>
+			<a href="./upload.html" class="button" id="button_createGifs">Crear Gifs</a>
 			<div class="nav__dropdown">
 				<div class="nav__btn--dropdown dotted" id="dualButton">
 					<div class="text dotted__text textButton_sailorNight" id="button_text_chooseTheme">
@@ -34,13 +34,15 @@
 				</div>
 				<div id="myDropdown" class="nav__list">
 					<a href="#" class="button-inside sailorDay button-sailorNight"
-						><span style="text-decoration-line: underline;">S</span>ailor Day</a
+						><span class="borderBottom" id="borderSBottomSDayId">S</span>ailor Day</a
 					>
-					<a href="#" class="button-inside sailorNight button-sailorNight">Sailor Night</a>
+					<a href="#" class="button-inside sailorNight button-sailorNight"
+						><span id="borderSBottomSNightId">S</span>ailor Night</a
+					>
 				</div>
 			</div>
 			<a href="#myGifsId" class="nav__btn--normal" id="change_color"
-				><span style="text-decoration-line: underline;">M</span>is Gifos</a
+				><span class="borderBottom" id="borderMBottomId">M</span>is Gifos</a
 			>
 		</nav>
 		<section class="alert" id="alertId">
@@ -52,7 +54,7 @@
 			</div>
 			<div class="dialogueWindow">
 				<div class="dialogueWindow__image">
-					<img src="./assets/window img.png" alt="window image" />
+					<img src="./assets/window_img.png" alt="window image" />
 				</div>
 				<div>
 					<h3 class="dialogueWindow__boldParagraph">
@@ -73,14 +75,14 @@
 			</div>
 
 			<div class="buttons-uploadPage">
-				<a href="#myGifsId" class="button button--cancel" id="cancelButtonId">Cancelar</a>
+				<a href="#myGifsId" class="button button--cancel button-white" id="cancelButtonId">Cancelar</a>
 				<a href="#gifcreationId" class="button button--comenzar" onclick="activateCamera()" id="startButtonId">Comenzar</a>
 			</div>
 		</section>
 
 		<section class="gifCreation" id="gifcreationId">
 			<div class="alert__nameWindow" id="namewindowGifCreation">
-				<h3 id="windowName"></h3>
+				<h3 id="windowName">gif creation</h3>
 				<a href="#myGifsId" class="buttonExit" id="exitButton">
 					<img src="./assets/close.svg" alt="Exit Button" />
 				</a>
@@ -90,9 +92,8 @@
 				<video id="video" autoplay="" playsinline=""></video>
 			</div>
 
-			<!-- PONER ESTO EN UN VIDEO Y PONERLE EL PLAY EN LA FLECHITA DE PLAY -->
 			<div class="gifCreation__video" id="showGif">
-				<img src="" alt="" class="gif" />
+				<img src="." alt="gif Created" class="gif" />
 			</div>
 
 			<div class="gifCreation__video uploadingGif" id="uploadGifId">
@@ -105,7 +106,7 @@
 			<div class="gifCreation__uploaded" id="showGif-2">
 				<div class="uploaded-box">
 					<div class="gifUploadedBox">
-						<img src="" alt="hola" class="gif-2" />
+						<img src="." alt="gif uploaded" class="gif-2" />
 					</div>
 					<div class="buttons-uploaded">
 						<h3 class="successGif"><strong>Gif creado con éxito</strong></h3>
@@ -144,14 +145,14 @@
 						</a>
 					</div>
 
-					<a href="#gifcreationId" class="button" id="btn-repeat">Rpetir Captura</a>
+					<a href="#gifcreationId" class="button button-white" id="btn-repeat">Rpetir Captura</a>
 					<a href="#gifcreationId" class="button" id="btn-upload">Subir Gif</a>
 				</div>
 			</div>
 		</section>
 
 		<section class="myGifs" id="myGifsId">
-			<div class="subtitle">
+			<div class="subtitle" id="subtitle">
 				<h3>Mis gifs</h3>
 			</div>
 			<div class="myGifs__gifs sNightTrending-color-gradient" id="myGifContainerId"></div>

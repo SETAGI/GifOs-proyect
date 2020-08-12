@@ -20,8 +20,6 @@ async function activateCamera() {
 	document.getElementById('video').srcObject = response;
 }
 
-document.getElementById('button_createGifs').addEventListener('click', activateCamera);
-
 document.getElementById('start').onclick = async function () {
 	recordingBoxActive();
 	/* timer */
@@ -38,15 +36,6 @@ document.getElementById('start').onclick = async function () {
 		height: 390,
 		frameRate: 5,
 	});
-
-	// recorder = RecordRTC(response, {
-	// 	type: 'gif',
-	// 	quality: 10,
-	// 	width: 360,
-	// 	hidden: 240,
-	// 	// height: 390,
-	// 	frameRate: 5,
-	// });
 
 	recorder.startRecording();
 };

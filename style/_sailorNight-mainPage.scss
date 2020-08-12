@@ -12,6 +12,13 @@
 		@include bg-buttons-sNight;
 	}
 }
+.button_sailorNight_white {
+	@include background-border-color($color-blue, null, $color-secondary);
+
+	&:hover {
+		background: $color-primary;
+	}
+}
 
 .dualBtn_sailorNight {
 	&:hover {
@@ -46,6 +53,10 @@
 		&:hover {
 			@include background-border-color($color-blue, 1px solid rgba(51, 53, 143, 0.2), $color-secondary);
 			box-shadow: inset -1px -1px 0 0 $color-Lighter-gray, inset 1px 1px 0 0 $color-secondary;
+
+			.borderBottom {
+				border-bottom: 1px solid $color-secondary;
+			}
 		}
 	}
 }
@@ -55,10 +66,16 @@
 
 	&:hover {
 		border: 1px dotted $color-secondary;
+		.borderBottom {
+			border-bottom: 1px solid $color-secondary;
+		}
 	}
 
 	&:active {
 		@include background-border-color(null, 1px solid transparent, $color-light-gray);
+		.borderBottom {
+			border-bottom: 1px solid $color-light-gray;
+		}
 	}
 }
 
@@ -121,22 +138,14 @@
 				}
 			}
 			.contentSnight {
-				background: $color-bg-gradientSailorNight;
-				background-size: 400% 400%;
-				animation: loading-animation 2s ease-in-out infinite;
-				color: transparent;
+				@include styleAnimation(
+					$color-bg-gradientSailorNight,
+					400% 400%,
+					loading-animation 2s ease-in-out infinite,
+					transparent
+				);
 			}
-			@keyframes loading-animation {
-				0% {
-					background-position: 0% 80%;
-				}
-				50% {
-					background-position: 90% 20%;
-				}
-				100% {
-					background-position: 0% 80%;
-				}
-			}
+			@include keyframesAnimation;
 		}
 	}
 }
@@ -157,22 +166,15 @@
 	.sNightTrending-color-gradient {
 		.sNight-style-gradient {
 			.contentSnight {
-				background: $color-bg-gradientSailorNight;
-				background-size: 400% 400%;
-				animation: loading-animation 2s ease-in-out infinite;
-				color: transparent;
+				@include styleAnimation(
+					$color-bg-gradientSailorNight,
+					400% 400%,
+					loading-animation 2s ease-in-out infinite,
+					transparent
+				);
 			}
-			@keyframes loading-animation {
-				0% {
-					background-position: 0% 80%;
-				}
-				50% {
-					background-position: 90% 20%;
-				}
-				100% {
-					background-position: 0% 80%;
-				}
-			}
+			@include keyframesAnimation;
+
 			.hash-trend-search {
 				background-image: $color-bg-gradientSailorNight;
 			}
@@ -185,22 +187,18 @@
 	.gifs-sNight {
 		.sNight-style-gradient {
 			.constentSnight {
-				background: $color-bg-gradientSailorNight;
-				background-size: 400% 400%;
-				animation: loading-animation 2s ease-in-out infinite;
-				color: transparent;
+				@include styleAnimation(
+					$color-bg-gradientSailorNight,
+					400% 400%,
+					loading-animation 2s ease-in-out infinite,
+					transparent
+				);
 			}
-			@keyframes loading-animation {
-				0% {
-					background-position: 0% 80%;
-				}
-				50% {
-					background-position: 90% 20%;
-				}
-				100% {
-					background-position: 0% 80%;
-				}
-			}
+			@include keyframesAnimation;
 		}
 	}
+}
+
+.myGifs-subtitle-sNight {
+	@include box-subtitle-sNight;
 }

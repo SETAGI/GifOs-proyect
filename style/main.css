@@ -264,7 +264,7 @@ html {
 }
 
 .nav__list {
-  z-index: 1;
+  z-index: 20;
   display: none;
   background: #e6e6e6;
   width: 16.7rem;
@@ -301,7 +301,7 @@ html {
 }
 
 .nav__btn--normal {
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -325,6 +325,10 @@ html {
 .nav__btn--normal:active {
   border: 1px solid transparent;
   color: #b4b4b4;
+}
+
+.nav__btn--normal:active .borderBottom {
+  border-bottom: 0.5px solid #b4b4b4;
 }
 
 .dotted:hover .dotted__text {
@@ -355,6 +359,12 @@ html {
   width: 83%;
   height: 80%;
   position: absolute;
+}
+
+.borderBottom {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 0.5px solid #110038;
 }
 
 /* appears when the user press the dropdown menu (select theme) */
@@ -424,9 +434,9 @@ html {
 }
 
 .help__list {
+  top: 10.2rem;
   left: 0;
   z-index: 10;
-  top: 10.2rem;
   display: none;
   padding: 1.6rem 0;
   background: #e6e6e6;
@@ -549,11 +559,11 @@ html {
 /*------------------------Mobile section----------------------*/
 @media screen and (max-width: 599px) {
   .header__logo {
-    position: absolute;
     top: 0;
     left: 50%;
     -webkit-transform: translate(-50%, 60%);
             transform: translate(-50%, 60%);
+    position: absolute;
   }
   .nav {
     margin-top: 15rem;
@@ -596,6 +606,16 @@ html {
   width: 95%;
   height: 80%;
   position: absolute;
+}
+
+.button-white {
+  background: #ffffff;
+}
+
+.button-white:hover {
+  background: #4180f6;
+  border: 1px solid #110038;
+  color: #ffffff;
 }
 
 .searcherbutton {
@@ -704,12 +724,12 @@ p:not(:last-child) {
 .suggestions__gifs {
   display: -ms-grid;
   display: grid;
-  margin-top: 1.9rem;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: repeat 1, 25rem;
       grid-template-rows: repeat 1, 25rem;
   grid-gap: 1rem;
+  margin-top: 1.9rem;
 }
 
 .suggestions__gifs .content {
@@ -728,11 +748,11 @@ p:not(:last-child) {
   width: 97%;
   height: 91%;
   position: absolute;
-  border: 1px dotted #110038;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -46.3%);
           transform: translate(-50%, -46.3%);
+  border: 1px dotted #110038;
 }
 
 .suggestions__gifs .content .gif {
@@ -873,13 +893,13 @@ p:not(:last-child) {
 .trends__gifs {
   display: -ms-grid;
   display: grid;
-  margin-top: 1.9rem;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: repeat 3, 25rem;
       grid-template-rows: repeat 3, 25rem;
   grid-auto-flow: row dense;
   grid-gap: 1rem;
+  margin-top: 1.9rem;
 }
 
 .trends__gifs .content {
@@ -904,13 +924,11 @@ p:not(:last-child) {
   height: 98.3%;
   position: absolute;
   border: 1.1px dotted #110038;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   top: 50%;
   left: 50%;
+  z-index: 4;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 4;
 }
 
 .trends__gifs .content:hover::before {
@@ -920,13 +938,11 @@ p:not(:last-child) {
   position: absolute;
   -webkit-box-shadow: inset -3px -3px 0 0 #b4b4b4, inset 3px 3px 0 0 #ffffff;
           box-shadow: inset -3px -3px 0 0 #b4b4b4, inset 3px 3px 0 0 #ffffff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   top: 50%;
   left: 50%;
+  z-index: 4;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 4;
 }
 
 .trends__gifs .content .gif {
@@ -966,17 +982,15 @@ p:not(:last-child) {
 }
 
 .hover-trend-search:hover {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   background: #e6e6e6;
   -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 }
 
 .hover-trend-search:hover .hash-trend-search {
+  height: 2.2rem;
   position: absolute;
   bottom: 0;
-  height: 2.2rem;
   font-size: 1.4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1129,11 +1143,11 @@ p:not(:last-child) {
 
 .gifCreation__video video,
 .gifCreation__video img {
-  height: 100%;
-  left: 0;
-  position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 /* -------------------------------- buttons ---------------------------------- */
@@ -1236,8 +1250,8 @@ p:not(:last-child) {
   background: #ffffff;
   padding: 0.5rem 1.5rem;
   border: 1px solid #979797;
-  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #110038;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #110038;
 }
 
 .progressBar {
@@ -1279,12 +1293,12 @@ p:not(:last-child) {
 .myGifs__gifs {
   display: -ms-grid;
   display: grid;
-  margin-top: 1.9rem;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: repeat 5, 250px;
-      grid-template-rows: repeat 5, 250px;
+  -ms-grid-rows: repeat 3, 25rem;
+      grid-template-rows: repeat 3, 25rem;
   grid-gap: 1rem;
+  margin-top: 1.9rem;
 }
 
 .myGifs__gifs .content {
@@ -1300,9 +1314,9 @@ p:not(:last-child) {
   border: 1.1px dotted #110038;
   top: 50%;
   left: 50%;
+  z-index: 4;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 4;
 }
 
 .myGifs__gifs .content:hover::before {
@@ -1316,9 +1330,9 @@ p:not(:last-child) {
           box-sizing: border-box;
   top: 50%;
   left: 50%;
+  z-index: 4;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 4;
 }
 
 .myGifs__gifs .content .gif {
@@ -1331,13 +1345,13 @@ p:not(:last-child) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background: #e6e6e6;
   width: 86rem;
   height: 34rem;
@@ -1368,8 +1382,8 @@ p:not(:last-child) {
   height: 19.1rem;
   background: #ffffff;
   border: 1px solid #979797;
-  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #110038;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #110038;
 }
 
 .uploaded-box .gifUploadedBox .gif-2 {
@@ -1381,16 +1395,16 @@ p:not(:last-child) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 45%;
 }
 
@@ -1411,27 +1425,66 @@ p:not(:last-child) {
           align-items: center;
   width: 25.6rem;
   height: 3.6rem;
-  background: #fff4fd;
+  background: #ffffff;
   border: 1px solid #110038;
   color: #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  position: relative;
 }
 
 .button-copy-download:not(:last-child) {
   margin-bottom: 2rem;
 }
 
+.button-copy-download:hover {
+  background: #e6bbe2;
+  border: 1px solid #110038;
+}
+
+.button-copy-download:hover::before {
+  content: '';
+  border: 1px dotted #110038;
+  width: 97.7%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.button-copy-downloadDark {
+  background: #110038;
+  border: 1px solid #110038;
+  color: #ffffff;
+  position: relative;
+}
+
+.button-copy-downloadDark:hover {
+  background: #110038;
+  border: 1px solid #110038;
+  color: #ffffff;
+}
+
+.button-copy-downloadDark:hover::before {
+  content: '';
+  border: 1px dotted #ffffff;
+  width: 97.7%;
+  height: 80%;
+  position: absolute;
+}
+
 .buttonListo {
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 79%;
-  margin-top: 3rem;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin: 0 auto;
+  width: 79%;
+  margin-top: 3rem;
 }
 
 /*----------------------------- SAILOR NIGHT UPLOAD PAGE ----------------------------------- */
@@ -1537,6 +1590,15 @@ p:not(:last-child) {
           box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
 
+.button_sailorNight_white {
+  background: #2e32fb;
+  color: #ffffff;
+}
+
+.button_sailorNight_white:hover {
+  background: #110038;
+}
+
 .dualBtn_sailorNight:hover .textButton_sailorNight {
   background: #ce36db;
   -webkit-box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
@@ -1582,6 +1644,10 @@ p:not(:last-child) {
           box-shadow: inset -1px -1px 0 0 #cccccc, inset 1px 1px 0 0 #ffffff;
 }
 
+.nav__list-sailorNight .button-sailorNight:hover .borderBottom {
+  border-bottom: 1px solid #ffffff;
+}
+
 .nav__btn--sailorNight {
   color: #ffffff;
 }
@@ -1590,9 +1656,17 @@ p:not(:last-child) {
   border: 1px dotted #ffffff;
 }
 
+.nav__btn--sailorNight:hover .borderBottom {
+  border-bottom: 1px solid #ffffff;
+}
+
 .nav__btn--sailorNight:active {
   border: 1px solid transparent;
   color: #b4b4b4;
+}
+
+.nav__btn--sailorNight:active .borderBottom {
+  border-bottom: 1px solid #b4b4b4;
 }
 
 .hashtag-color-gradient .gifContainer-sailorNight {
@@ -1754,5 +1828,12 @@ p:not(:last-child) {
   100% {
     background-position: 0% 80%;
   }
+}
+
+.myGifs-subtitle-sNight {
+  background: #fffafe;
+  border: 1px solid #2e32fb;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+          box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
 }
 /*# sourceMappingURL=main.css.map */

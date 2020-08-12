@@ -2,45 +2,32 @@
 	margin: 3rem 10rem;
 
 	&__gifs {
-		display: grid;
+		@include grid(repeat(4, 1fr), repeat (3, 25rem), row dense, 1rem);
 		margin-top: 1.9rem;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat (3, 25rem);
-		grid-auto-flow: row dense;
-		grid-gap: 1rem;
 
 		.content {
-			// width: 100%;
-			// height: 33rem;
 			@include width-height-position(100%, 32rem, null);
-
-			background: $color-bg-gradientSailorDay;
-			background-size: 400% 400%;
-			animation: loading-animation 2s ease-in-out infinite;
-			color: transparent;
+			@include styleAnimation(
+				$color-bg-gradientSailorDay,
+				400% 400%,
+				loading-animation 2s ease-in-out infinite,
+				transparent
+			);
 
 			&:hover {
-				box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+				box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 2px 0 0 $color-secondary;
 				&::after {
 					content: '';
 					@include width-height-position(99.2%, 98.3%, absolute);
 					border: 1.1px dotted $color-primary;
-					box-sizing: border-box;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					z-index: 4;
+					@include top-left-zIndex-transform(50%, 50%, 4, translate(-50%, -50%));
 				}
 
 				&::before {
 					content: '';
 					@include width-height-position(100.6%, 100%, absolute);
-					box-shadow: inset -3px -3px 0 0 #b4b4b4, inset 3px 3px 0 0 #ffffff;
-					box-sizing: border-box;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					z-index: 4;
+					box-shadow: inset -3px -3px 0 0 $color-light-gray, inset 3px 3px 0 0 $color-secondary;
+					@include top-left-zIndex-transform(50%, 50%, 4, translate(-50%, -50%));
 				}
 			}
 
@@ -49,17 +36,7 @@
 			}
 		}
 
-		@keyframes loading-animation {
-			0% {
-				background-position: 0% 80%;
-			}
-			50% {
-				background-position: 90% 20%;
-			}
-			100% {
-				background-position: 0% 80%;
-			}
-		}
+		@include keyframesAnimation;
 	}
 }
 
@@ -73,16 +50,13 @@
 	box-sizing: border-box;
 
 	&:hover {
-		box-sizing: border-box;
-		background: #e6e6e6;
-		box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+		background: $color-whiteGrey;
+		box-shadow: inset -1px -1px 0 0 $color-light-gray, inset 1px 1px 0 0 $color-secondary;
 
 		.hash-trend-search {
-			position: absolute;
+			@include width-height-position(null, 2.2rem, absolute);
 			bottom: 0;
-			height: 2.2rem;
 			font-size: 1.4rem;
-
 			@include flex(null, center, null);
 			@include background-border-color($color-bg-gradientSailorDay, null, $color-secondary);
 		}

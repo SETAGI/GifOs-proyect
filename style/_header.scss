@@ -9,9 +9,7 @@
 	}
 
 	&__logo {
-		top: 6.2rem;
-		left: 10rem;
-		// width: 10rem;
+		@include top-left-zIndex-transform(6.2rem, 10rem, null, null);
 		position: absolute;
 	}
 }
@@ -40,7 +38,7 @@
 	}
 
 	&__list {
-		z-index: 1;
+		z-index: 20;
 		display: none;
 		background: $color-whiteGrey;
 		@include width-height-position(16.7rem, 10.2rem, absolute);
@@ -61,7 +59,7 @@
 	}
 
 	&__btn--normal {
-		margin-left: 2rem;
+		margin-left: 1.5rem;
 		text-decoration: none;
 		@include flex(center, center, null);
 		@include width-height-position(8rem, 3.2rem, null);
@@ -73,6 +71,9 @@
 
 		&:active {
 			@include background-border-color(null, 1px solid transparent, $color-light-gray);
+			.borderBottom {
+				border-bottom: 0.5px solid $color-light-gray;
+			}
 		}
 	}
 }
@@ -103,6 +104,11 @@
 			}
 		}
 	}
+}
+
+.borderBottom {
+	box-sizing: border-box;
+	border-bottom: 0.5px solid $color-primary;
 }
 
 /* appears when the user press the dropdown menu (select theme) */
@@ -141,9 +147,7 @@
 }
 
 .help__list {
-	left: 0;
-	z-index: 10;
-	top: 10.2rem;
+	@include top-left-zIndex-transform(10.2rem, 0, 10, null);
 	display: none;
 	padding: 1.6rem 0;
 	background: $color-whiteGrey;
@@ -163,9 +167,7 @@
 			background: $color-whiteGrey;
 			&::after {
 				content: '';
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
+				@include top-left-zIndex-transform(50%, 50%, null, translate(-50%, -50%));
 				border: 1px dotted $color-primary;
 				@include width-height-position(99.6%, 90%, absolute);
 			}
@@ -235,13 +237,10 @@
 @media screen and (max-width: 599px) {
 	.header {
 		&__logo {
+			@include top-left-zIndex-transform(0, 50%, null, translate(-50%, 60%));
 			position: absolute;
-			top: 0;
-			left: 50%;
-			transform: translate(-50%, 60%);
 		}
 	}
-
 	.nav {
 		margin-top: 15rem;
 	}

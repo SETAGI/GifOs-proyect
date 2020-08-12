@@ -1,7 +1,6 @@
 .arrowReturn {
 	position: absolute;
-	top: 7.5rem;
-	left: 6rem;
+	@include top-left-zIndex-transform(7.5rem, 6rem, null, null);
 }
 
 .nav {
@@ -9,7 +8,6 @@
 }
 
 .alert {
-	// margin: 5rem 37.8rem;
 	margin: 5rem 30%;
 	padding-top: 0.01rem;
 	background: $color-whiteGrey;
@@ -74,11 +72,8 @@
 
 		video,
 		img {
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
+			@include top-left-zIndex-transform(0, 0, null, null);
+			@include width-height-position(100%, 100%, absolute);
 		}
 	}
 }
@@ -129,10 +124,10 @@
 
 /* cronometer */
 .timer {
-	background: #ffffff;
+	background: $color-secondary;
 	padding: 0.5rem 1.5rem;
-	border: 1px solid #979797;
-	box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+	border: 1px solid $color-mediumLow-gray;
+	box-shadow: inset -2px -2px 0 0 $color-whiteGrey, inset 2px 2px 0 0 $color-primary;
 }
 
 .progressBar {
@@ -140,18 +135,11 @@
 }
 
 .uploadingGif {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	@include flex(center, center, column);
 	position: relative;
 	img {
-		width: 5rem;
-		height: 5rem;
-		position: absolute;
-		top: 30%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		@include width-height-position(5rem, 5rem, absolute);
+		@include top-left-zIndex-transform(30%, 50%, null, translate(-50%, -50%));
 	}
 }
 
@@ -161,36 +149,26 @@
 	margin: 3rem 10rem;
 
 	&__gifs {
-		display: grid;
+		@include grid(repeat(4, 1fr), repeat (3, 25rem), null, 1rem);
 		margin-top: 1.9rem;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat (5, 250px);
-		grid-gap: 1rem;
 
 		.content {
-			width: 100%;
-			height: 33rem;
+			@include width-height-position(100%, 33rem, null);
 
 			&:hover {
 				&::after {
 					content: '';
 					@include width-height-position(99.2%, 98.3%, absolute);
 					border: 1.1px dotted $color-primary;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					z-index: 4;
+					@include top-left-zIndex-transform(50%, 50%, 4, translate(-50%, -50%));
 				}
 
 				&::before {
 					content: '';
 					@include width-height-position(100.6%, 100%, absolute);
-					box-shadow: inset -3px -3px 0 0 #b4b4b4, inset 3px 3px 0 0 #ffffff;
+					box-shadow: inset -3px -3px 0 0 $color-light-gray, inset 3px 3px 0 0 $color-secondary;
 					box-sizing: border-box;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					z-index: 4;
+					@include top-left-zIndex-transform(50%, 50%, 4, translate(-50%, -50%));
 				}
 			}
 
@@ -204,39 +182,29 @@
 /* -----------------------------------uploaded box ----------------------- */
 
 .gifCreation__uploaded {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	@include flex(center, null, column);
 	background: $color-whiteGrey;
 	@include width-height-position(86rem, 34rem, null);
 	box-shadow: inset -2px -2px 0 0 $color-light-gray, inset 2px 0px 0 0 $color-secondary;
 }
 .uploaded-box {
-	display: flex;
-	justify-content: space-around;
+	@include flex(space-around, null, null);
 
 	.gifUploadedBox {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include flex(center, center, null);
 		padding: 0.2rem;
-		width: 36.5rem;
-		height: 19.1rem;
-		background: #ffffff;
-		border: 1px solid #979797;
-		box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+		@include width-height-position(36.5rem, 19.1rem, null);
+		@include background-border-color($color-secondary, 1px solid $color-mediumLow-gray, null);
+		box-shadow: inset -2px -2px 0 0 $color-whiteGrey, inset 2px 2px 0 0 $color-primary;
+
 		.gif-2 {
-			width: 100%;
-			height: 100%;
+			@include width-height-position(100%, 100%, null);
 		}
 	}
 }
 
 .buttons-uploaded {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	@include flex(center, center, column);
 	width: 45%;
 
 	.successGif {
@@ -248,22 +216,44 @@
 	text-decoration: none;
 	@include flex(center, center, null);
 	@include width-height-position(25.6rem, 3.6rem, null);
-	background: #fff4fd;
-	border: 1px solid #110038;
-	color: #110038;
-	box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+	@include background-border-color($color-secondary, 1px solid $color-primary, $color-primary);
+	box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
+	position: relative;
 
 	&:not(:last-child) {
 		margin-bottom: 2rem;
 	}
+
+	&:hover {
+		@include background-border-color($color-whitePurple, 1px solid $color-primary, null);
+
+		&::before {
+			content: '';
+			border: 1px dotted $color-primary;
+			@include width-height-position(97.7%, 80%, absolute);
+			@include top-left-zIndex-transform(50%, 50%, null, translate(-50%, -50%));
+		}
+	}
+}
+
+.button-copy-downloadDark {
+	@include background-border-color($color-primary, 1px solid $color-primary, $color-secondary);
+	position: relative;
+	&:hover {
+		@include background-border-color($color-primary, 1px solid $color-primary, $color-secondary);
+		&::before {
+			content: '';
+			border: 1px dotted $color-secondary;
+			@include width-height-position(97.7%, 80%, absolute);
+		}
+	}
 }
 
 .buttonListo {
+	@include flex(flex-end, null, null);
 	margin: 0 auto;
-	display: flex;
 	width: 79%;
 	margin-top: 3rem;
-	justify-content: flex-end;
 }
 
 /*----------------------------- SAILOR NIGHT UPLOAD PAGE ----------------------------------- */

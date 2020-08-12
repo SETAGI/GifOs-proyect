@@ -19,6 +19,13 @@
 		}
 	}
 }
+.button-white {
+	background: $color-secondary;
+
+	&:hover {
+		@include background-border-color($color-lighter-blue, 1px solid $color-primary, $color-secondary);
+	}
+}
 
 .searcherbutton {
 	padding-right: 1rem;

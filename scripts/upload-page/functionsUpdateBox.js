@@ -115,9 +115,7 @@ function dropdownFunction() {
 window.onclick = function (e) {
 	let myDropdown = document.getElementById('myDropdown');
 
-	if (!e.target.matches('.dropbtn')) {
-		myDropdown.classList.remove('show');
-	}
+	if (!e.target.matches('.dropbtn')) myDropdown.classList.remove('show');
 };
 
 function activeCameraBox() {
@@ -126,7 +124,6 @@ function activeCameraBox() {
 	document.getElementById('btn-capturar').classList.remove('hidden');
 	document.getElementById('buttons-containerId').classList.remove('hidden');
 	document.getElementById('gifcreationId').classList.remove('hidden');
-
 	document.getElementById('uploadGifId').classList.add('hidden');
 	document.getElementById('alertId').classList.add('hidden');
 	document.getElementById('showGif').classList.add('hidden');
@@ -141,7 +138,6 @@ function recordingBoxActive() {
 	document.getElementById('windowName').textContent = 'Capturando tu gif';
 	document.getElementById('btn-listo').classList.remove('hidden');
 	document.getElementById('timerId').classList.remove('hidden');
-
 	document.getElementById('uploadGifId').classList.add('hidden');
 	document.getElementById('btn-capturar').classList.add('hidden');
 }
@@ -151,7 +147,6 @@ function stopRecordingBoxActive() {
 	document.getElementById('btn-repeat').classList.remove('hidden');
 	document.getElementById('btn-upload').classList.remove('hidden');
 	document.getElementById('showGif').classList.remove('hidden');
-
 	document.getElementById('btn-listo').classList.add('hidden');
 	document.getElementById('recordVideo').classList.add('hidden');
 }
@@ -159,7 +154,6 @@ function stopRecordingBoxActive() {
 function deleteAllWindows() {
 	document.getElementById('windowName').textContent = 'Gif Subido Con Éxito';
 	document.getElementById('showGif-2').classList.remove('hidden');
-
 	document.getElementById('recordVideo').classList.add('hidden');
 	document.getElementById('btn-capturar').classList.add('hidden');
 	document.getElementById('uploadGifId').classList.add('hidden');
@@ -175,7 +169,6 @@ function deleteAllWindows() {
 function uploadGifbox() {
 	document.getElementById('windowName').textContent = 'Subiendo Gif';
 	document.getElementById('uploadGifId').classList.remove('hidden');
-
 	document.getElementById('btn-listo').classList.add('hidden');
 	document.getElementById('recordVideo').classList.add('hidden');
 	document.getElementById('btn-repeat').classList.add('hidden');
@@ -186,8 +179,12 @@ function uploadGifbox() {
 
 /*-------------------- Event listeners for themes ----------------------------*/
 function sNightMode() {
+	document.getElementById('borderSBottomSNightId').classList.add('borderBottom');
+	document.getElementById('borderSBottomSDayId').classList.remove('borderBottom');
+	document.getElementById('buttonCopyId').classList.add('button-copy-downloadDark');
+	document.getElementById('buttonDownloadId').classList.add('button-copy-downloadDark');
+	document.getElementById('subtitle').classList.add('myGifs-subtitle-sNight');
 	document.getElementById('myGifsId').classList.add('trends-sNight');
-
 	document.getElementById('alertId').classList.add('alert-sNight');
 	document.getElementById('gifcreationId').classList.add('gifCreation-sNight');
 	document.getElementById('showGif-2').classList.add('gifCreation-sNight');
@@ -196,26 +193,29 @@ function sNightMode() {
 	document.getElementById('bodyId').classList.add('change_color_body');
 	document.getElementById('welcomeBar').classList.add('change_color_gradient');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo_dark.png';
-	// changing buttons style
-	document.getElementById('btn-repeat').classList.add('button_sailorNight');
+	document.getElementById('btn-repeat').classList.add('button_sailorNight_white');
 	document.getElementById('btn-upload').classList.add('button_sailorNight');
 	document.getElementById('buttonListoId').classList.add('button_sailorNight');
 	document.getElementById('start').classList.add('button_sailorNight');
 	document.getElementById('captureImg').classList.add('button_sailorNight');
 	document.querySelector('.btnStart__camera img').src = './assets/camera_light.svg';
-	document.getElementById('cancelButtonId').classList.add('button_sailorNight');
+	document.getElementById('cancelButtonId').classList.add('button_sailorNight_white');
 	document.getElementById('startButtonId').classList.add('button_sailorNight');
 	document.getElementById('button_deleteGifs').classList.add('button_sailorNight');
 	document.getElementById('button_createGifs').classList.add('button_sailorNight');
 	document.getElementById('dualButton').classList.add('dualBtn_sailorNight');
 	document.getElementById('change_color').classList.add('nav__btn--sailorNight');
-	/* changing nav buttons */
 	document.getElementById('myDropdown').classList.add('nav__list-sailorNight');
 
 	localStorage.setItem('themes', 'sNight');
 }
 
 function sDayMode() {
+	document.getElementById('borderSBottomSNightId').classList.remove('borderBottom');
+	document.getElementById('borderSBottomSDayId').classList.add('borderBottom');
+	document.getElementById('buttonCopyId').classList.remove('button-copy-downloadDark');
+	document.getElementById('buttonDownloadId').classList.remove('button-copy-downloadDark');
+	document.getElementById('subtitle').classList.remove('myGifs-subtitle-sNight');
 	document.getElementById('myGifsId').classList.remove('trends-sNight');
 	document.getElementById('alertId').classList.remove('alert-sNight');
 	document.getElementById('gifcreationId').classList.remove('gifCreation-sNight');
@@ -225,20 +225,18 @@ function sDayMode() {
 	document.getElementById('bodyId').classList.remove('change_color_body');
 	document.getElementById('welcomeBar').classList.remove('change_color_gradient');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo.png';
-	// changing buttons style
-	document.getElementById('btn-repeat').classList.remove('button_sailorNight');
+	document.getElementById('btn-repeat').classList.remove('button_sailorNight_white');
 	document.getElementById('btn-upload').classList.remove('button_sailorNight');
 	document.getElementById('buttonListoId').classList.remove('button_sailorNight');
 	document.getElementById('start').classList.remove('button_sailorNight');
 	document.getElementById('captureImg').classList.remove('button_sailorNight');
 	document.querySelector('.btnStart__camera img').src = './assets/camera.svg';
-	document.getElementById('cancelButtonId').classList.remove('button_sailorNight');
+	document.getElementById('cancelButtonId').classList.remove('button_sailorNight_white');
 	document.getElementById('startButtonId').classList.remove('button_sailorNight');
 	document.getElementById('button_deleteGifs').classList.remove('button_sailorNight');
 	document.getElementById('button_createGifs').classList.remove('button_sailorNight');
 	document.getElementById('dualButton').classList.remove('dualBtn_sailorNight');
 	document.getElementById('change_color').classList.remove('nav__btn--sailorNight');
-	/* changing search button style */
 	document.getElementById('myDropdown').classList.remove('nav__list-sailorNight');
 
 	localStorage.setItem('themes', 'sDay');

@@ -17,22 +17,6 @@ async function showCamera() {
 	return stream;
 }
 
-// async function showCamera() {
-// 	let response = navigator.mediaDevices.getUserMedia({
-// 		video: {
-// 			// width: { ideal: 832 },
-// 			height: {
-// 				max: 480,
-// 			},
-// 		},
-// 		audio: false,
-// 	});
-
-// 	let stream = await response;
-
-// 	return stream;
-// }
-
 async function getPOST() {
 	let response = await fetch(`${URL_UPLOAD}?api_key=${APIKey}`, {
 		method: 'POST',

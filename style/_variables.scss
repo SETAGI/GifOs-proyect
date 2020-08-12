@@ -35,20 +35,53 @@ $color-bg-gradientSailorNight: linear-gradient(270deg, $color-light-purple 0%, $
 	flex-direction: $flex-direction;
 }
 
-// mixin box decoration subtitles
+@mixin grid($grid-template-columns, $grid-template-rows, $grid-auto-flow, $grid-gap) {
+	display: grid;
+	grid-template-columns: $grid-template-columns;
+	grid-template-rows: $grid-template-rows;
+	grid-auto-flow: $grid-auto-flow;
+	grid-gap: $grid-gap;
+}
+
+@mixin top-left-zIndex-transform($top, $left, $zIndex, $transform) {
+	top: $top;
+	left: $left;
+	z-index: $zIndex;
+	transform: $transform;
+}
+
 @mixin box-subtitle-sNight {
 	background: #fffafe;
 	border: 1px solid $color-blue;
 	box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
 }
 
-// mixin background and box shadow to buttons
+@mixin styleAnimation($background, $background-size, $animation, $color) {
+	background: $background;
+	background-size: $background-size;
+	animation: $animation;
+	color: $color;
+}
+
+@mixin keyframesAnimation {
+	@keyframes loading-animation {
+		0% {
+			background-position: 0% 80%;
+		}
+		50% {
+			background-position: 90% 20%;
+		}
+		100% {
+			background-position: 0% 80%;
+		}
+	}
+}
+
 @mixin bg-buttons-sNight {
 	background: #ce36db;
 	box-shadow: inset -1px -1px 0 0 $color-purple, inset 1px 1px 0 0 $color-secondary;
 }
 
-// mixin search button with dotted lines
 @mixin dotted-lines-button {
 	content: '';
 	width: 96%;
@@ -60,14 +93,12 @@ $color-bg-gradientSailorNight: linear-gradient(270deg, $color-light-purple 0%, $
 	transform: translate(-50.8%, -50%);
 }
 
-// mixin box decoration buttons sailor day
 @mixin button-decoration-sDay {
 	background: $color-bg-btnSailorDay;
 	border: 0.2px solid $color-primary;
 	box-shadow: inset -1px -1px 0 0 $color-pale-purple, inset 1px 1px 0 0 $color-secondary;
 }
 
-// mixin box decoration button stop recording red
 @mixin button-decoration-red {
 	background: #ff6161;
 	border: 1px solid #110038;

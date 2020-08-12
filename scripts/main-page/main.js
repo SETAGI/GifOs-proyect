@@ -1,21 +1,12 @@
 /*-------------------------- API REQUEST ---------------------------------*/
 
-if (localStorage.getItem('themes') == 'sNight') {
-	sailorNightMode();
-}
-
-if (localStorage.getItem('themes') == 'sDay') {
-	sailorDayMode();
-}
-
-/* Vars and const are in const&varModule.js */
+/* Loading selected theme */
+localStorage.getItem('themes') == 'sNight' ? sailorNightMode() : sailorDayMode();
 
 const showGifSuggestions = async (gifData) => {
 	try {
 		suggestGifContainer.innerHTML = '';
-		// do it in grid mode
 		for (let i = 0; i < 4; i++) {
-			// container-creation.js
 			await suggestionBoxesCreation(gifData, i);
 		}
 	} catch (error) {
@@ -27,7 +18,6 @@ const showGifsTrendingAndSearch = async (random, gifData) => {
 	try {
 		trendGifContainer.innerHTML = '';
 		for (let i = 0; i < 100; i++) {
-			// container-creation.js
 			await trendingBoxesCreation(random, gifData, i);
 		}
 	} catch (error) {

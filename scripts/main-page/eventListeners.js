@@ -6,6 +6,8 @@ const sailorDayMode = () => {
 	document.getElementById('search').classList.remove('search_container');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo.png';
 	// changing buttons style
+	document.getElementById('borderSBottomSNightId').classList.remove('borderBottom');
+	document.getElementById('borderSBottomSDayId').classList.add('borderBottom');
 	document.getElementById('button_createGifs').classList.remove('button_sailorNight');
 	document.getElementById('dualButton').classList.remove('dualBtn_sailorNight');
 	document.getElementById('change_color').classList.remove('nav__btn--sailorNight');
@@ -35,6 +37,8 @@ const sailorNightMode = () => {
 	document.getElementById('search').classList.add('search_container');
 	document.querySelector('.header__logo').src = './assets/gifOF_logo_dark.png';
 	// changing buttons style
+	document.getElementById('borderSBottomSNightId').classList.add('borderBottom');
+	document.getElementById('borderSBottomSDayId').classList.remove('borderBottom');
 	document.getElementById('button_createGifs').classList.add('button_sailorNight');
 	document.getElementById('dualButton').classList.add('dualBtn_sailorNight');
 	document.getElementById('change_color').classList.add('nav__btn--sailorNight');

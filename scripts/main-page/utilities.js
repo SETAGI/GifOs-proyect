@@ -1,9 +1,8 @@
 /*-------------------------------- Consts and Variables -------------------------------*/
 const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM';
-const URL = 'http://api.giphy.com/v1/gifs/search?q=';
-const URL2 = 'http://api.giphy.com/v1/gifs/trending?';
-const URL_suggestions = 'http://api.giphy.com/v1/tags/related/';
-// const URL_UPLOAD = 'http://upload.giphy.com/v1/gifs';
+const URL = 'https://api.giphy.com/v1/gifs/search?q=';
+const URL2 = 'https://api.giphy.com/v1/gifs/trending?';
+const URL_suggestions = 'https://api.giphy.com/v1/tags/related/';
 
 let suggestGifContainer = document.getElementById('suggestions-gifsID');
 let trendGifContainer = document.getElementById('trendsGifsId');

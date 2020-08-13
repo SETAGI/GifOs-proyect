@@ -1,5 +1,5 @@
 const APIKey = 'BEPOh7DbTahJQlGhpBZAsDm9mzt6apvM';
-const URL_UPLOAD = 'http://upload.giphy.com/v1/gifs';
+const URL_UPLOAD = 'https://upload.giphy.com/v1/gifs';
 
 async function showCamera() {
 	let response = navigator.mediaDevices.getUserMedia({
@@ -28,7 +28,7 @@ async function getPOST() {
 }
 
 async function getGif(id) {
-	let response = await fetch(`http://api.giphy.com/v1/gifs/${id}?api_key=${APIKey}`);
+	let response = await fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=${APIKey}`);
 	let giData = await response.json();
 
 	return giData;

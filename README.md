@@ -10,7 +10,7 @@ The main functions of this WebApp are to obtain gifs to show the user (access th
 
 [![](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/suggestions.png)](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/suggestions.png)
 
-- **Search input:** you can put whatever kind of name or short description for finding gifs related, this input become three name of gifs suggested related with the keyword you enter in the space.
+- **Search input:** you can put whatever kind of name or short description for finding gifs related, this input brings three name of gifs suggested related with the keyword you enter in the space.
 
 * **Suggestions:** the webpage brings four cards suggested for the user, you could see the title in hashtag form, a exit button and a see more button.
 

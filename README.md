@@ -14,9 +14,9 @@ The main functions of this WebApp are to obtain gifs to show the user (access th
 
 * **Suggestions:** the webpage brings four cards suggested for the user, you could see the title in hashtag form, a exit button and a see more button.
 
-  ##### See more button:\*\* you can search for more gifs related to the card title just by pressing the button.
+  ##### See more button: you can search for more gifs related to the card title just by pressing the button.
 
-  ##### Exit button:\*\* you can change the suggested card to a random one.
+  ##### Exit button: you can change the suggested card to a random one.
 
 [![](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/search.png)](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/search.png)
 

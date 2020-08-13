@@ -20,7 +20,7 @@ The main functions of this WebApp are to obtain gifs to show the user (access th
 
 [![](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/search.png)](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/search.png)
 
-- ** Trends: **In this section you can see the current trends gifs, additionally some gifs occupy two spaces in the grid if the size of the gif is larger. You can see the trend section only when the web page is loaded
+- **Trends:** In this section you can see the current trends gifs, additionally some gifs occupy two spaces in the grid if the size of the gif is larger. You can see the trend section only when the web page is loaded
 
 [![](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/trends.png)](https://github.com/SETAGI/GifOs-proyect/blob/master/assets/trends.png)
 
